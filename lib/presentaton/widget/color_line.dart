@@ -106,6 +106,8 @@ class LightBulb extends StatelessWidget {
             gradient: RadialGradient(
               colors: [
                 Colors.white10,
+
+                // Colors.white10,
                 const Color.fromARGB(100, 251, 193, 45),
                 const Color.fromARGB(201, 255, 235, 59),
                 Colors.yellow.shade100,

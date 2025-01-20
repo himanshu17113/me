@@ -102,6 +102,14 @@ const TextStyle titleLarge = TextStyle(
     height: 1.27,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
+const TextStyle titleBig = TextStyle(
+    debugLabel: 'englishLike titleLarge 2021',
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0.0,
+    height: 1.27,
+    textBaseline: TextBaseline.alphabetic,
+    leadingDistribution: TextLeadingDistribution.even);
 const TextStyle titleMedium = TextStyle(
     debugLabel: 'englishLike titleMedium 2021',
     fontSize: 16.0,
@@ -172,4 +180,3 @@ const TextStyle sm = TextStyle(fontSize: 24);
 const TextStyle md = TextStyle(fontSize: 36);
 const TextStyle lg = TextStyle(fontSize: 48);
 const TextStyle xl = TextStyle(fontSize: 60);
- 

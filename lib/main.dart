@@ -16,9 +16,9 @@ class App extends StatefulWidget {
 }
 
 ColorSeed colorSelected = ColorSeed.white;
-
-class _AppState extends State<App> {
   ThemeMode themeMode = ThemeMode.system;
+class _AppState extends State<App> {
+
 
   bool get useLightMode => switch (themeMode) {
         ThemeMode.system => View.of(context).platformDispatcher.platformBrightness == Brightness.light,

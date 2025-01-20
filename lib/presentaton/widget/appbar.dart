@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
-import 'package:me/util/buttons/back_slide.dart';
 import 'package:me/util/buttons/buttons.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -29,10 +28,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   static const header = TextStyle(
       // color: Colors.white,
       fontSize: 16,
-      letterSpacing: 1,
-      fontWeight: FontWeight.w700
-      //fontFamily:
-      );
+      letterSpacing: 0.1,
+      fontFamily: "Rubik",
+      fontVariations: <FontVariation>[FontVariation('wght', 600.0)]);
   static const headerunder = TextStyle(
     // color: Colors.white,
     decoration: TextDecoration.underline,
@@ -91,25 +89,32 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                       flex: 2,
                     ),
                     Visibility(
-                        visible: mediaQueryData.size.width > 1000,
+                        visible: mediaQueryData.size.width > 900,
                         replacement: const EndDrawerButton(),
                         child: Expanded(
-                            flex: 7,
+                            flex: 9,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 HoverButton(
                                   onPressed: () {},
                                   label: "Projects",
-                                   icon: Icons.arrow_right_alt,
                                 ),
-                                TextButton(onPressed: () {}, child: const Text("About", style: headerunder)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: const Text(
-                                      "Contact",
-                                      style: header,
-                                    )),
+                                HoverButton(
+                                  onPressed: () {},
+                                  label: "About",
+                                ),
+                                HoverButton(
+                                  onPressed: () {},
+                                  label: "Contact",
+                                ),
+                                // TextButton(onPressed: () {}, child: const Text("About", style: headerunder)),
+                                // TextButton(
+                                //     onPressed: () {},
+                                //     child: const Text(
+                                //       "Contact",
+                                //       style: header,
+                                //     )),
                               ],
                             ))),
                     const Spacer()
