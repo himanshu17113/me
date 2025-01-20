@@ -1,7 +1,8 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:layout/layout.dart';
 import 'package:me/const.dart';
-import 'package:me/typo.dart';
+import 'package:me/main.dart';
+import 'constants.dart';
 
 class Lhome extends StatelessWidget {
   final ScrollController scrollController;
@@ -18,70 +19,63 @@ class Lhome extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              //     width: mediaQueryData.size.width,
-              height: mediaQueryData.size.height * .9,
+              height: 20,
+            ),
+            SizedBox(
+              //  width: mediaQueryData.size.width - 100,
+              height: mediaQueryData.size.height * .9 - 80,
               child: FittedBox(
                 fit: BoxFit.contain,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      height: mediaQueryData.size.height * .9,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("I am", style: displaySmall),
-                          const Text("Himanshu S.", style: headlineLarge),
-                          SizedBox(
-                            height: mediaQueryData.size.height * .2,
-                            width: mediaQueryData.size.width * .75,
-                            child: const FittedBox(
-                              alignment: Alignment.centerLeft,
-                              // fit: BoxFit.fitHeight,
-                              child: Text(
-                                "A Frontend Engineer. I Help\nStartups to Devlope And Grow\nTheir Products.",
-                                style: displaySmall,
-                                maxLines: 3,
-                              ),
-                            ),
+                child: SizedBox(
+                  height: mediaQueryData.size.height * .9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("HELLO, MY NAME IS HIMANSHU",
+                          style: TextStyle(
+                              fontSize: context.layout.value(xs: 13, sm: 20, md: 28, lg: 32, xl: 40),
+                              fontFamily: "Rubik",
+                              color: colorSelected != ColorSeed.white
+                                  ? Theme.of(context).colorScheme.inversePrimary
+                                  : Color.fromARGB(255, 255, 20, 71),
+                              fontWeight: FontWeight.bold,
+                              fontVariations: <FontVariation>[FontVariation('wght', 450.0)],
+                              decoration: TextDecoration.none)),
+                      // const Text("I am", style: displaySmall),
+                      // const Text("Himanshu S.", style: headlineLarge),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, bottom: 40),
+                        child: SizedBox(
+                          //height: mediaQueryData.size.height * .5,
+                          width: mediaQueryData.size.width * .7,
+                          child: FittedBox(
+                            alignment: Alignment.centerLeft,
+                            fit: BoxFit.scaleDown,
+                            child: Text("I make mobile apps.",
+                                maxLines: 1,
+                                style: TextStyle(
+                                    fontSize: 112,
+                                    fontFamily: "noe",
+                                    fontWeight: FontWeight.bold,
+                                    fontVariations: <FontVariation>[FontVariation('wght', 1200.0)],
+                                    decoration: TextDecoration.none)),
                           ),
-                          //   const Spacer(),
-                          SizedBox(
-                            height: 100,
-                            child: Row(
-                              children: [
-                                const Text("Building Apps for ", style: titleLarge),
-                                AnimatedTextKit(
-                                  repeatForever: true,
-                                  animatedTexts: [
-                                    RotateAnimatedText('Mac', textStyle: headlineSmall),
-                                    RotateAnimatedText('Android', textStyle: headlineSmall),
-                                    RotateAnimatedText('iOS', textStyle: headlineSmall),
-                                    RotateAnimatedText('Web', textStyle: headlineSmall),
-                                    RotateAnimatedText('Linux', textStyle: headlineSmall),
-                                    RotateAnimatedText('Windows', textStyle: headlineSmall),
-                                  ],
-                                  // onTap: () {
-                                  //   print("Tap Event");
-                                  // },
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Text("Using Flutter & Kotlin", style: headlineSmall)
-                        ],
+                        ),
                       ),
-                    ),
-                    // Visibility(
-                    //   visible: mediaQueryData.size.width > 1000,
-                    //   child: SvgPicture.asset(
-                    //     'asset/md.svg',
-                    //     // height: mediaQueryData.size.height * 0.6,
-                    //     width: mediaQueryData.size.width * 0.3,
-                    //   ),
-                    // )
-                  ],
+                      SizedBox(
+                        width: mediaQueryData.size.width * .85,
+                        child: Text(
+                            "I'm a mobile application developer, Who is Git-committed to blending creativity and functionality into every app.",
+                            maxLines: 6,
+                            style: TextStyle(
+                              fontSize: context.layout.value(xs: 28, sm: 38, md: 46, lg: 48, xl: 60),
+                              fontFamily: "Rubik",
+                              fontVariations: <FontVariation>[FontVariation('wght', 380.0)],
+                            )),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )

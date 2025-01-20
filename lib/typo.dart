@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
 
-class WhiteCupertino {
-  static const TextStyle displayLarge =
-      TextStyle(debugLabel: 'whiteCupertino displayLarge', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle displayMedium =
-      TextStyle(debugLabel: 'whiteCupertino displayMedium', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle displaySmall =
-      TextStyle(debugLabel: 'whiteCupertino displaySmall', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle headlineLarge =
-      TextStyle(debugLabel: 'whiteCupertino headlineLarge', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle headlineMedium =
-      TextStyle(debugLabel: 'whiteCupertino headlineMedium', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle headlineSmall =
-      TextStyle(debugLabel: 'whiteCupertino headlineSmall', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle titleLarge =
-      TextStyle(debugLabel: 'whiteCupertino titleLarge', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
-  static const TextStyle titleMedium =
-      TextStyle(debugLabel: 'whiteCupertino titleMedium', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle titleSmall =
-      TextStyle(debugLabel: 'whiteCupertino titleSmall', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle bodyLarge =
-      TextStyle(debugLabel: 'whiteCupertino bodyLarge', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle bodyMedium =
-      TextStyle(debugLabel: 'whiteCupertino bodyMedium', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle bodySmall =
-      TextStyle(debugLabel: 'whiteCupertino bodySmall', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle labelLarge =
-      TextStyle(debugLabel: 'whiteCupertino labelLarge', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle labelMedium =
-      TextStyle(debugLabel: 'whiteCupertino labelMedium', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
-  static const TextStyle labelSmall =
-      TextStyle(debugLabel: 'whiteCupertino labelSmall', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+class CupertinoTextStyles {
+  static const TextStyle displayLarge = TextStyle(
+      debugLabel: 'whiteCupertino displayLarge', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
+  static const TextStyle displayMedium = TextStyle(
+      debugLabel: 'whiteCupertino displayMedium',
+      fontFamily: 'CupertinoSystemDisplay',
+      decoration: TextDecoration.none);
+  static const TextStyle displaySmall = TextStyle(
+      debugLabel: 'whiteCupertino displaySmall', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
+  static const TextStyle headlineLarge = TextStyle(
+      debugLabel: 'whiteCupertino headlineLarge',
+      fontFamily: 'CupertinoSystemDisplay',
+      decoration: TextDecoration.none);
+  static const TextStyle headlineMedium = TextStyle(
+      debugLabel: 'whiteCupertino headlineMedium',
+      fontFamily: 'CupertinoSystemDisplay',
+      decoration: TextDecoration.none);
+  static const TextStyle headlineSmall = TextStyle(
+      debugLabel: 'whiteCupertino headlineSmall',
+      fontFamily: 'CupertinoSystemDisplay',
+      decoration: TextDecoration.none);
+  static const TextStyle titleLarge = TextStyle(
+      debugLabel: 'whiteCupertino titleLarge', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
+  static const TextStyle titleMedium = TextStyle(
+      debugLabel: 'whiteCupertino titleMedium',
+      fontSize: 22,
+      color: Color.fromARGB(255, 255, 20, 71),
+      fontVariations: <FontVariation>[FontVariation('wght', 1200.0)],
+      fontFamily: 'CupertinoSystemText',
+      decoration: TextDecoration.none);
+  static const TextStyle titleSmall = TextStyle(
+      debugLabel: 'whiteCupertino titleSmall', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+  static const TextStyle bodyLarge = TextStyle(
+      debugLabel: 'whiteCupertino bodyLarge', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+  static const TextStyle bodyMedium = TextStyle(
+      debugLabel: 'whiteCupertino bodyMedium', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+  static const TextStyle bodySmall = TextStyle(
+      debugLabel: 'whiteCupertino bodySmall', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+  static const TextStyle labelLarge = TextStyle(
+      debugLabel: 'whiteCupertino labelLarge', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+  static const TextStyle labelMedium = TextStyle(
+      debugLabel: 'whiteCupertino labelMedium', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
+  static const TextStyle labelSmall = TextStyle(
+      debugLabel: 'whiteCupertino labelSmall', fontFamily: 'CupertinoSystemText', decoration: TextDecoration.none);
 }
 
 const TextStyle displayLarge = TextStyle(
@@ -153,3 +166,10 @@ const TextStyle bodySmall = TextStyle(
     height: 1.33,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
+
+const TextStyle xs = TextStyle(fontSize: 16);
+const TextStyle sm = TextStyle(fontSize: 24);
+const TextStyle md = TextStyle(fontSize: 36);
+const TextStyle lg = TextStyle(fontSize: 48);
+const TextStyle xl = TextStyle(fontSize: 60);
+ 

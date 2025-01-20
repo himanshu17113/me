@@ -4,8 +4,8 @@ import 'package:me/color_line.dart';
 import 'package:me/const.dart';
 import 'package:me/lhome.dart';
 
-import 'appbar.dart';
-import 'constants.dart';
+import '../widget/appbar.dart';
+import '../../constants.dart';
 
 class Home extends StatefulWidget {
   const Home(
@@ -77,14 +77,50 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: Column(
           children: [
-            Lhome(scrollController: scrollController),
-            ColorLine(
-                colorSelected: widget.colorSelected,
-                handleBrightnessChange: widget.handleBrightnessChange,
-                handleColorSelect: widget.handleColorSelect)
+            SizedBox(
+              //   height: 80,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    decoration:
+                        BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).colorScheme.secondaryContainer),
+                    width: 100,
+                    height: 60,
+                  ),
+
+                  // Container(
+                  //   width: 60,
+                  //   height: 50,
+                  //   decoration: BoxDecoration(
+                  //     color: Theme.of(context).colorScheme.secondaryContainer,
+                  //     borderRadius: BorderRadius.only(bottomRight: Radius.circular(90)),
+                  //   ),
+                  // ),
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondaryContainer.withAlpha(150),
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Lhome(scrollController: scrollController),
+                ColorLine(
+                    colorSelected: widget.colorSelected,
+                    handleBrightnessChange: widget.handleBrightnessChange,
+                    handleColorSelect: widget.handleColorSelect)
+              ],
+            ),
           ],
         ));
   }

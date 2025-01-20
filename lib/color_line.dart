@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
 import 'package:me/constants.dart';
@@ -16,8 +14,8 @@ class ColorLine extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isLight = Theme.of(context).brightness == Brightness.light;
     return SizedBox(
-      //width: ,
-      height: mediaQueryData.size.height,
+      // width: mediaQueryData.size.height * 0.066,
+      height: mediaQueryData.size.height - 80,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.max,
@@ -66,15 +64,22 @@ class _ColorSeedButton extends StatelessWidget {
     return Column(
       children: List.generate(
         ColorSeed.values.length,
-        (i) => IconButton(
-          icon: const Icon(Icons.radio_button_unchecked),
-          color: ColorSeed.values[i].color,
-          isSelected: colorSelected.color == ColorSeed.values[i].color,
-          selectedIcon: const Icon(Icons.circle),
-          onPressed: () {
-            handleColorSelect(i);
-          },
-          tooltip: ColorSeed.values[i].label,
+        (i) => SizedBox.square(
+          dimension: mediaQueryData.size.height * 0.05,
+          child: IconButton(
+            iconSize: mediaQueryData.size.height * 0.0313,
+            visualDensity: VisualDensity.compact,
+            style: ButtonStyle(),
+            padding: EdgeInsets.zero,
+            icon: const Icon(Icons.radio_button_unchecked),
+            color: ColorSeed.values[i].color,
+            isSelected: colorSelected.color == ColorSeed.values[i].color,
+            selectedIcon: const Icon(Icons.circle),
+            onPressed: () {
+              handleColorSelect(i);
+            },
+            tooltip: ColorSeed.values[i].label,
+          ),
         ),
       ),
     );
@@ -82,7 +87,7 @@ class _ColorSeedButton extends StatelessWidget {
 }
 
 class LightBulb extends StatelessWidget {
-  const LightBulb({Key? key}) : super(key: key);
+  const LightBulb({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +117,7 @@ class LightBulb extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.3),
+              color: Colors.white30,
             ),
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:layout/layout.dart';
 import 'package:me/constants.dart';
-import 'package:me/home.dart';
+import 'package:me/presentaton/pages/home.dart';
 import 'const.dart';
 
 void main() {
@@ -14,9 +15,10 @@ class App extends StatefulWidget {
   State<App> createState() => _AppState();
 }
 
+ColorSeed colorSelected = ColorSeed.white;
+
 class _AppState extends State<App> {
   ThemeMode themeMode = ThemeMode.system;
-  ColorSeed colorSelected = ColorSeed.white;
 
   bool get useLightMode => switch (themeMode) {
         ThemeMode.system => View.of(context).platformDispatcher.platformBrightness == Brightness.light,
@@ -39,33 +41,35 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Portfolio',
-      //  //   initialRoute: Routes.home,
-      //     routes: Routes.routes,
+    return Layout(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Portfolio',
+        //  //   initialRoute: Routes.home,
+        //     routes: Routes.routes,
 
-      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-      themeMode: themeMode,
-      theme: ThemeData(
+        scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        themeMode: themeMode,
+        theme: ThemeData(
           colorSchemeSeed: colorSelected.color,
           useMaterial3: true,
           brightness: Brightness.light,
-          textTheme: TextTheme()),
-      darkTheme: ThemeData(
-        colorSchemeSeed: colorSelected.color,
-        useMaterial3: true,
-        brightness: Brightness.dark,
-      ),
-      highContrastDarkTheme:
-          ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
-      highContrastTheme:
-          ThemeData.from(colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
-      home: Home(
-        useLightMode: useLightMode,
-        colorSelected: colorSelected,
-        handleBrightnessChange: handleBrightnessChange,
-        handleColorSelect: handleColorSelect,
+        ),
+        darkTheme: ThemeData(
+          colorSchemeSeed: colorSelected.color,
+          useMaterial3: true,
+          brightness: Brightness.dark,
+        ),
+        highContrastDarkTheme:
+            ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
+        highContrastTheme: ThemeData.from(
+            colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
+        home: Home(
+          useLightMode: useLightMode,
+          colorSelected: colorSelected,
+          handleBrightnessChange: handleBrightnessChange,
+          handleColorSelect: handleColorSelect,
+        ),
       ),
     );
   }

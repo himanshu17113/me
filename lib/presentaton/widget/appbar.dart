@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:me/const.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,11 +25,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       //fontFamily:
       );
   static const header = TextStyle(
-    // color: Colors.white,
-    fontSize: 18,
-    letterSpacing: 1,
-    //fontFamily:
-  );
+      // color: Colors.white,
+      fontSize: 16,
+      letterSpacing: 1,
+      fontWeight: FontWeight.w700
+      //fontFamily:
+      );
   static const headerunder = TextStyle(
     // color: Colors.white,
     decoration: TextDecoration.underline,
@@ -52,7 +52,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: AnimatedContainer(
                 // color: value ? const Color.fromRGBO(27, 25, 27, 0.4) : const Color.fromRGBO(27, 25, 27, 0.1),
                 duration: const Duration(milliseconds: 200),
-                height: value ? 70 : 0,
+                height: value ? 80 : 0,
+                padding: EdgeInsets.only(top: 30),
+                alignment: Alignment.bottomCenter,
                 //    padding: EdgeInsets.symmetric(horizontal: mediaQueryData.size.width * .1),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,9 +68,15 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                         fit: BoxFit.scaleDown,
                         child: Row(
                           children: [
+                            CircleAvatar(
+                              backgroundImage: const NetworkImage('assets/images/profile.png', scale: 0.7),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
                             Text(
                               "Himanshu Singhal",
-                              style: Theme.of(context).textTheme.headlineMedium,
+                              style: header,
                             ),
                             Text(
                               '. Mobile Developer',
