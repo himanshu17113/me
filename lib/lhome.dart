@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 import 'package:me/main.dart';
+import 'package:me/util/extensions/extensions.dart';
 import 'constants.dart';
+import 'util/buttons/buttons.dart';
 
 class Lhome extends StatelessWidget {
   final ScrollController scrollController;
@@ -80,6 +82,14 @@ class Lhome extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Visibility(
+                      visible: context.isMobile,
+                      child: HoverButton(
+                        onPressed: () {},
+                        icon: Icons.arrow_right_alt,
+                        label: "SEE MY WORK",
+                      ),
+                    )
                   ],
                 ),
               ),

@@ -54,8 +54,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: AnimatedContainer(
                 // color: value ? const Color.fromRGBO(27, 25, 27, 0.4) : const Color.fromRGBO(27, 25, 27, 0.1),
                 duration: const Duration(milliseconds: 200),
-                height: value ? 80 : 0,
-                padding: EdgeInsets.only(top: 30),
+                height: value ? 120 : 0,
                 alignment: Alignment.bottomCenter,
                 //    padding: EdgeInsets.symmetric(horizontal: mediaQueryData.size.width * .1),
                 child: Row(
@@ -102,6 +101,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 HoverButton(
                                   onPressed: () {},
                                   label: "Projects",
+                                   icon: Icons.arrow_right_alt,
                                 ),
                                 TextButton(onPressed: () {}, child: const Text("About", style: headerunder)),
                                 TextButton(
