@@ -11,14 +11,14 @@ class CustomButton extends StatefulWidget {
     this.foregroundColor = kBlack,
     this.shadowColor,
     required this.onPressed,
-    required this.icon,
+    this.icon,
   });
   final String label;
   final Color bgColor;
   final Color foregroundColor;
   final Color? shadowColor;
   final VoidCallback onPressed;
-  final IconData icon;
+  final IconData? icon;
   @override
   State<CustomButton> createState() => _CustomButtonState();
 }
@@ -28,10 +28,10 @@ class _CustomButtonState extends State<CustomButton> {
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = context.adaptive(Theme.of(context).textTheme.bodySmall,
-        Theme.of(context).textTheme.bodyMedium);
+    final labelStyle = context.adaptive(Theme.of(context).textTheme.bodySmall, Theme.of(context).textTheme.bodyMedium);
     return GestureDetector(
       onTap: widget.onPressed,
+    
       child: MouseRegion(
         onHover: (PointerEvent event) {
           setState(() {
@@ -56,10 +56,11 @@ class _CustomButtonState extends State<CustomButton> {
                 ),
               ),
               customSpace(w: _isHovered ? s10 : s5),
-              Icon(
-                widget.icon,
-                color: widget.shadowColor ?? kSecondary,
-              ),
+              if (widget.icon != null)
+                Icon(
+                  widget.icon,
+                  color: widget.shadowColor ?? kSecondary,
+                ),
             ].addRow().addCenter().addContainer(
                   padding: EdgeInsets.symmetric(
                     vertical: context.adaptive(s6, s14),
@@ -83,9 +84,10 @@ class _CustomButtonState extends State<CustomButton> {
               duration: const Duration(milliseconds: d300),
               curve: Curves.easeInOut,
             ),
-            Icon(
-              widget.icon,
-            ),
+            if (widget.icon != null)
+              Icon(
+                widget.icon,
+              ),
           ].addRow().addCenter().addContainer(
                 margin: const EdgeInsets.only(left: s8, bottom: s8),
                 padding: EdgeInsets.symmetric(

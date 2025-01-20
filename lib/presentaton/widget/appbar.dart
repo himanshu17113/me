@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
+import 'package:me/util/buttons/back_slide.dart';
+import 'package:me/util/buttons/buttons.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ValueListenable<bool> isVisible;
@@ -97,12 +99,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                TextButton(
-                                    onPressed: () {},
-                                    child: const Text(
-                                      "Projects",
-                                      style: header,
-                                    )),
+                                HoverButton(
+                                  onPressed: () {},
+                                  label: "Projects",
+                                ),
                                 TextButton(onPressed: () {}, child: const Text("About", style: headerunder)),
                                 TextButton(
                                     onPressed: () {},

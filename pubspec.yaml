@@ -38,6 +38,7 @@ dependencies:
   intl: ^0.20.1
   layout: ^1.0.5
   visibility_detector: ^0.4.0+2
+  neopop: ^1.0.2
 
 dev_dependencies:
   flutter_test:
