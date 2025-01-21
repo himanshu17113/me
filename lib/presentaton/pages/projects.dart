@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
+import 'package:me/main.dart';
 import 'package:me/util/extensions/layout_adapter_ex.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -58,30 +59,72 @@ class _ProjectsState extends State<Projects> {
               ),
             ),
             AnimatedContainer(
-              duration: Durations.extralong2,
+              duration: Durations.extralong4,
               height: 400,
+              curve: Curves.easeInOut,
               width: !isVisble ? 0 : screenWidth,
               alignment: Alignment.center,
-              padding: EdgeInsets.symmetric(horizontal: !isVisble ? 0 : screenWidth * .1),
-              color: Theme.of(context).colorScheme.surfaceContainer,
-              child: Stack(
-                alignment: Alignment.centerLeft,
-                children: [
-                  Container(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    height: 340,
-                    width: screenWidth * 0.5,
-                  ),
-                  AnimatedAlign(
-                    alignment: isVisble ? Alignment.centerRight : Alignment.centerLeft,
-                    duration: Durations.extralong4,
-                    child: Container(
-                      color: Theme.of(context).colorScheme.surfaceContainerLowest,
-                      height: 340,
-                      width: screenWidth * 0.28,
+              margin: EdgeInsets.symmetric(horizontal: screenWidth * .06, vertical: screenHeight * .1),
+              padding: EdgeInsets.all(!isVisble ? 0 : screenWidth * .02),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(36),
+                color: Theme.of(context).colorScheme.surfaceContainer,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).shadowColor.withAlpha(40),
+                      spreadRadius: 2,
+                      blurRadius: 18,
+                      offset: const Offset(5, 5),
                     ),
-                  ),
-                ],
+                    // const BoxShadow(
+                    //     color: Color.fromARGB(119, 255, 255, 255),
+                    //     offset: Offset(-2, -2),
+                    //     blurRadius: 15,
+                    //     spreadRadius: 1),
+                  ],
+                  color: Theme.of(context).colorScheme.surfaceContainerLow,
+                  borderRadius: BorderRadius.circular(36),
+                ),
+                child: Row(
+                  //  / alignment: Alignment.centerLeft,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: themeMode == ThemeMode.dark
+                              ? null
+                              : RadialGradient(
+                                  colors: [
+                                    Theme.of(context).colorScheme.inversePrimary.withAlpha(135), // Mid color
+                                    Theme.of(context).colorScheme.inversePrimary.withAlpha(160), // Mid color
+                                    Theme.of(context).colorScheme.inversePrimary.withAlpha(190), // Mid color
+                                    Theme.of(context).colorScheme.inversePrimary.withAlpha(225),
+                                    Theme.of(context).colorScheme.inversePrimary, // Outer color
+                                  ],
+                                  stops: [0.2, 0.4, 0.6, 0.8, 1.0], // Control the gradient spread
+                                ),
+                          color: Theme.of(context).colorScheme.secondaryFixed,
+                          borderRadius: BorderRadius.circular(36),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.all(screenWidth * .02),
+                        decoration: BoxDecoration(
+                          // color: Theme.of(context).colorScheme.surfaceContainerLow,
+                          borderRadius: BorderRadius.circular(36),
+                        ),
+                        child: Text(
+                            "jhgfskdlghghsgdhjgjhghjdfghjghjfgshdghjsfghfsghdsghjdgfghgdgfhgsdfghfgfghjdghjdghgdfjh"),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
