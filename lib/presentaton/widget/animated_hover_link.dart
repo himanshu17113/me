@@ -3,7 +3,7 @@ import 'package:me/typo.dart';
 import 'package:me/util/extensions/layout_adapter_ex.dart';
 
 class HoveLink extends StatelessWidget {
-  HoveLink({super.key, required this.label, required this.onPressed});
+  HoveLink({super.key, required this.label, required this.onPressed, });
 
   final String label;
   final VoidCallback onPressed;

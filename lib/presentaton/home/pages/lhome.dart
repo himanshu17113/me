@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../const.dart';
+import 'fotter.dart';
 import 'intro.dart';
 import 'projects.dart';
 
@@ -8,13 +10,10 @@ class Lhome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQueryData = MediaQuery.of(context);
-    final screenHeight = mediaQueryData.size.height;
-
     return SizedBox(
       height: screenHeight,
       child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         controller: scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +51,8 @@ class Lhome extends StatelessWidget {
               ),
             ),
             Intro(),
-            Projects()
+            Projects(),
+            Footer(),
           ],
         ),
       ),

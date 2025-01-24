@@ -2,19 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 import 'package:me/main.dart';
 import 'package:me/util/extensions/extensions.dart';
-import '../../constants.dart';
-import '../widget/animated_hover_link.dart';
-import '../../util/buttons/buttons.dart';
+import '../../../const.dart';
+import '../../../constants.dart';
+import '../../widget/animated_hover_link.dart';
+import '../../../util/buttons/buttons.dart';
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final mediaQueryData = MediaQuery.of(context);
-    final screenWidth = mediaQueryData.size.width;
-    final screenHeight = mediaQueryData.size.height;
-
     return Container(
       width: screenWidth,
       alignment: Alignment.centerLeft,

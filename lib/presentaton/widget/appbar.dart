@@ -50,8 +50,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
             child: AnimatedContainer(
+                color: Theme.of(context).scaffoldBackgroundColor.withAlpha(value ? 75 : 0),
                 // color: value ? const Color.fromRGBO(27, 25, 27, 0.4) : const Color.fromRGBO(27, 25, 27, 0.1),
-                duration: const Duration(milliseconds: 200),
+                duration: Durations.medium1,
                 height: value ? 120 : 0,
                 alignment: Alignment.bottomCenter,
                 //    padding: EdgeInsets.symmetric(horizontal: mediaQueryData.size.width * .1),

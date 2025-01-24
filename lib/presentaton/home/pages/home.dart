@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:me/presentaton/widget/color_line.dart';
 import 'package:me/const.dart';
-import 'package:me/presentaton/pages/lhome.dart';
+import 'package:me/presentaton/home/pages/lhome.dart';
 
-import '../widget/appbar.dart';
-import '../../constants.dart';
+import '../../widget/appbar.dart';
+import '../../../constants.dart';
 
 class Home extends StatefulWidget {
   const Home(
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    mediaQueryData = MediaQuery.of(context);
+   // mediaQueryData = MediaQuery.of(context);
     return Scaffold(
         key: key,
         extendBody: true,

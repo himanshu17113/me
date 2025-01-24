@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 import 'package:me/constants.dart';
-import 'package:me/presentaton/pages/home.dart';
+import 'package:me/presentaton/home/pages/home.dart';
 import 'const.dart';
 
 void main() {
@@ -16,10 +16,9 @@ class App extends StatefulWidget {
 }
 
 ColorSeed colorSelected = ColorSeed.white;
-  ThemeMode themeMode = ThemeMode.system;
+ThemeMode themeMode = ThemeMode.system;
+
 class _AppState extends State<App> {
-
-
   bool get useLightMode => switch (themeMode) {
         ThemeMode.system => View.of(context).platformDispatcher.platformBrightness == Brightness.light,
         ThemeMode.light => true,
@@ -41,6 +40,8 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
+    screenHeight = mediaQueryData.size.height;
+    screenWidth = mediaQueryData.size.width;
     return Layout(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

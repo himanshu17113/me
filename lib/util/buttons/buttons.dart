@@ -9,9 +9,10 @@ class HoverButton extends StatefulWidget {
     required this.label,
     required this.onPressed,
     this.icon,
+    this.isRounded = true,
   });
   final String label;
-
+  final bool isRounded;
   final VoidCallback onPressed;
   final IconData? icon;
   @override
@@ -33,8 +34,11 @@ class _HoverButtonState extends State<HoverButton> {
             curve: Curves.easeIn,
             duration: Durations.medium4,
             child: Container(
-              foregroundDecoration:
-                  ShapeDecoration(shape: StadiumBorder(), color: Theme.of(context).colorScheme.secondaryContainer),
+              foregroundDecoration: ShapeDecoration(
+                  shape: widget.isRounded
+                      ? const StadiumBorder()
+                      : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
+                  color: Theme.of(context).colorScheme.secondaryContainer),
               child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
                   onPressed: widget.onPressed,
@@ -58,7 +62,11 @@ class _HoverButtonState extends State<HoverButton> {
                     _isHovered = value;
                   }),
               iconAlignment: IconAlignment.end,
-              style: OutlinedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
+              style: OutlinedButton.styleFrom(
+                  shape: widget.isRounded
+                      ? const StadiumBorder()
+                      : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
               onPressed: widget.onPressed,
               icon: widget.icon != null
                   ? AnimatedPadding(
