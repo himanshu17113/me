@@ -5,6 +5,7 @@ late MediaQueryData mediaQueryData;
 late double screenHeight;
 late double screenWidth;
 late ThemeData theme;
+late ColorScheme colorScheme;
 
 Text slash(BuildContext context) => Text(
       "  /  ",

@@ -4,6 +4,7 @@ import 'package:me/presentaton/home/pages/fotter.dart';
 import 'package:me/presentaton/widget/color_line.dart';
 import 'package:me/presentaton/home/pages/lhome.dart';
 
+import '../../../const.dart';
 import '../../widget/appbar.dart';
 import '../../../constants.dart';
 
@@ -48,6 +49,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    theme = Theme.of(context);
+    colorScheme = theme.colorScheme;
     // mediaQueryData = MediaQuery.of(context);
     return Scaffold(
         key: key,

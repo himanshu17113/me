@@ -44,13 +44,13 @@ class Projects extends StatelessWidget {
                                   : screenWidth * 0.5,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.primaryContainer,
+                              color: colorScheme.primaryContainer,
                               borderRadius: BorderRadius.horizontal(right: Radius.circular(36))),
                           child: Text(
                             "My Projects",
                             maxLines: 1,
                             style: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimaryContainer,
+                              color: colorScheme.onPrimaryContainer,
                               fontSize: context.layout.value(xs: 26, sm: 34, md: 48, lg: 52, xl: 58),
                               fontFamily: "noe",
                               fontWeight: FontWeight.bold,
@@ -61,8 +61,8 @@ class Projects extends StatelessWidget {
                         ),
                         ProjectContainer(
                           isVisble: visibily > 50,
-                          lightColor: Theme.of(context).colorScheme.inversePrimary,
-                          darkColor: Theme.of(context).colorScheme.secondaryFixed,
+                          lightColor: colorScheme.inversePrimary,
+                          darkColor: colorScheme.secondaryFixed,
                           projectImage: 'assets/images/profile.png',
                           projectDetails: '',
                         ),
@@ -87,11 +87,17 @@ class Projects extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        AboutProject(isVisble: visibily > 10, label: "", description: "", onPressed: () {}),
+                        AboutProject(
+                          isVisble: visibily > 10,
+                          label: "",
+                          description: "",
+                          onPressed: () {},
+                          colorTypr: 0,
+                        ),
                         ProjectContainer(
                           isVisble: visibily > 30,
-                          lightColor: Theme.of(context).colorScheme.tertiaryContainer,
-                          darkColor: Theme.of(context).colorScheme.tertiary,
+                          lightColor: colorScheme.tertiaryContainer,
+                          darkColor: colorScheme.tertiary,
                           projectImage: 'assets/images/profile.png',
                           projectDetails: '',
                         ),
@@ -116,15 +122,27 @@ class Projects extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        AboutProject(isVisble: visibily > 10, label: "", description: "", onPressed: () {}),
+                        AboutProject(
+                          isVisble: visibily > 10,
+                          label: "",
+                          description: "",
+                          onPressed: () {},
+                          colorTypr: 2,
+                        ),
                         ProjectContainer(
                           isVisble: visibily > 45,
-                          lightColor: Theme.of(context).colorScheme.secondaryContainer,
-                          darkColor: Theme.of(context).colorScheme.secondary,
+                          lightColor: colorScheme.secondaryContainer,
+                          darkColor: colorScheme.secondary,
                           projectImage: 'assets/images/profile.png',
                           projectDetails: '',
                         ),
-                        AboutProject(isVisble: visibily > 80, label: "", description: "", onPressed: () {}),
+                        AboutProject(
+                          isVisble: visibily > 80,
+                          label: "",
+                          description: "",
+                          onPressed: () {},
+                          colorTypr: 1,
+                        ),
                       ],
                     ));
               },
