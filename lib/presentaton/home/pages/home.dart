@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:me/presentaton/widget/color_line.dart';
-import 'package:me/const.dart';
 import 'package:me/presentaton/home/pages/lhome.dart';
 
 import '../../widget/appbar.dart';

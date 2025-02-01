@@ -30,10 +30,10 @@ class ProjectContainer extends StatelessWidget {
               ? null
               : RadialGradient(
                   colors: [
-                    lightColor.withAlpha(135), // Mid color
-                    lightColor.withAlpha(160), // Mid color
-                    lightColor.withAlpha(190), // Mid color
-                    lightColor.withAlpha(225),
+                    lightColor.withAlpha(155), // Mid color
+                    lightColor.withAlpha(175), // Mid color
+                    lightColor.withAlpha(200), // Mid color
+                    lightColor.withAlpha(235),
                     lightColor, // Outer color
                   ],
                   stops: [0.2, 0.4, 0.6, 0.8, 1.0], // Control the gradient spread
@@ -73,7 +73,7 @@ class ProjectContainer extends StatelessWidget {
       padding: EdgeInsets.all(!isVisble ? 0 : screenWidth * .012),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Theme.of(context).colorScheme.surfaceContainer,
+        color: Theme.of(context).colorScheme.surfaceContainerLow,
       ),
       child: Container(
         decoration: BoxDecoration(

@@ -22,7 +22,7 @@ class ColorLine extends StatelessWidget {
         children: [
           const Expanded(child: VerticalDivider()),
           SizedBox(
-            height: isLight ? 50 : 40,
+            height: isLight ? 60 : 40,
             child: Stack(
               alignment: AlignmentDirectional.bottomCenter,
               children: [
@@ -31,7 +31,10 @@ class ColorLine extends StatelessWidget {
                   endIndent: 30,
                 ),
                 Visibility(visible: isLight, child: LightBulb()),
-                IconButton(onPressed: () => handleBrightnessChange(!isLight), icon: const Icon(Icons.light)),
+                Positioned(
+                    bottom: isLight ? 10 : 0,
+                    child:
+                        IconButton(onPressed: () => handleBrightnessChange(!isLight), icon: const Icon(Icons.light))),
               ],
             ),
           ),
@@ -91,29 +94,36 @@ class LightBulb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color color = Theme.of(context).colorScheme.primaryContainer;
     return ClipPath(
       clipper: ConeClipper(),
       child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: 2.0,
-          sigmaY: 2.0,
-        ),
+        filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 3.0, tileMode: TileMode.repeated),
         child: Container(
-          width: 40,
-          height: 30,
+          width: 50,
+          height: 40,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: RadialGradient(
               colors: [
-                Colors.white10,
-
-                // Colors.white10,
-                const Color.fromARGB(100, 251, 193, 45),
-                const Color.fromARGB(201, 255, 235, 59),
-                Colors.yellow.shade100,
-              ],
-              stops: [0.1, 0.5, 0.7, 1.0],
-              focal: Alignment.center,
+                color.withAlpha(10),
+                color.withAlpha(70),
+                color.withAlpha(170),
+                color.withAlpha(150),
+                color.withAlpha(120),
+                color.withAlpha(100),
+                color.withAlpha(40)
+              ]
+              //[
+              //   Colors.white,
+              //   const Color.fromARGB(100, 251, 193, 45),
+              //   const Color.fromARGB(201, 255, 235, 59),
+              //   const Color.fromARGB(53, 255, 249, 196),
+              // ],
+              //   stops: [0.1, 0.5, 0.7, 1.0],
+              ,
+              stops: [0.1, 0.2, 0.4, 0.6, 0.7, 0.8, 1.0],
+              focal: Alignment.topCenter,
             ),
           ),
           child: Container(
@@ -132,7 +142,7 @@ class ConeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final Path path = Path();
-    final double width = size.width;
+    final double width = size.width * 1;
     final double height = size.height;
 
     // Define the rounded edges
