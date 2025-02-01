@@ -40,6 +40,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
+    theme = Theme.of(context);
     screenHeight = mediaQueryData.size.height;
     screenWidth = mediaQueryData.size.width;
     return Layout(

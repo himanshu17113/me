@@ -87,21 +87,9 @@ class Intro extends StatelessWidget {
           Row(
             children: [
               HoveLink(label: "Git Hub", onPressed: () {}),
-              Text(
-                "  /  ",
-                style: TextStyle(
-                    fontSize: context.layout.value(xs: 28, sm: 32, md: 36, lg: 48, xl: 60),
-                    fontFamily: "SourGummy",
-                    fontVariations: <FontVariation>[FontVariation('wght', 250.0)]),
-              ),
+             slash(context),
               HoveLink(label: "Linkdin", onPressed: () {}),
-              Text(
-                "  /  ",
-                style: TextStyle(
-                    fontSize: context.layout.value(xs: 28, sm: 32, md: 36, lg: 48, xl: 60),
-                    fontFamily: "SourGummy",
-                    fontVariations: <FontVariation>[FontVariation('wght', 250.0)]),
-              ),
+            slash(context),
               HoveLink(label: "Resume", onPressed: () {}),
             ],
           ),

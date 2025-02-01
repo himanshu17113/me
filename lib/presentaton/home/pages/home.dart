@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:me/presentaton/home/pages/fotter.dart';
 import 'package:me/presentaton/widget/color_line.dart';
 import 'package:me/presentaton/home/pages/lhome.dart';
 
@@ -47,7 +48,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-   // mediaQueryData = MediaQuery.of(context);
+    // mediaQueryData = MediaQuery.of(context);
     return Scaffold(
         key: key,
         extendBody: true,
@@ -83,10 +84,18 @@ class _HomeState extends State<Home> {
               //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Lhome(scrollController: scrollController),
-                ColorLine(
-                    colorSelected: widget.colorSelected,
-                    handleBrightnessChange: widget.handleBrightnessChange,
-                    handleColorSelect: widget.handleColorSelect)
+                ValueListenableBuilder(
+                  valueListenable: isFooterVisiblex,
+                  builder: (context, isFooterVisible, child) => AnimatedOpacity(
+                    opacity: isFooterVisible ? 0 : 1,
+                    duration: Durations.long4,
+                    curve: Curves.easeInQuart,
+                    child: ColorLine(
+                        colorSelected: widget.colorSelected,
+                        handleBrightnessChange: widget.handleBrightnessChange,
+                        handleColorSelect: widget.handleColorSelect),
+                  ),
+                )
               ],
             ),
           ],
