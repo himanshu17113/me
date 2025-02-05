@@ -23,13 +23,13 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
-
+  // ValueListenable<bool>
+  final ValueNotifier<bool> isVisible = ValueNotifier(true);
 class _HomeState extends State<Home> {
   final ScrollController scrollController = ScrollController();
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
 
-  // ValueListenable<bool>
-  final ValueNotifier<bool> isVisible = ValueNotifier(true);
+
   @override
   void initState() {
     scrollController.addListener(() {
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
         ///   background// color: const Color.fromRGBO(27, 25, 27, 1),
         appBar: HomeAppBar(
           isVisible: isVisible,
-          skey: key,
+      
         ),
         endDrawer: const Drawer(
           //  background// color: Color.fromRGBO(241, 241, 241, 1),
@@ -80,27 +80,23 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: Column(
+        body: Stack(
+          alignment: Alignment.centerRight,
+          //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Stack(
-              alignment: Alignment.centerRight,
-              //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Lhome(scrollController: scrollController),
-                ValueListenableBuilder(
-                  valueListenable: isFooterVisiblex,
-                  builder: (context, isFooterVisible, child) => AnimatedOpacity(
-                    opacity: isFooterVisible ? 0 : 1,
-                    duration: Durations.long4,
-                    curve: Curves.easeInQuart,
-                    child: ColorLine(
-                        colorSelected: widget.colorSelected,
-                        handleBrightnessChange: widget.handleBrightnessChange,
-                        handleColorSelect: widget.handleColorSelect),
-                  ),
-                )
-              ],
-            ),
+            Lhome(scrollController: scrollController),
+            ValueListenableBuilder(
+              valueListenable: isFooterVisiblex,
+              builder: (context, isFooterVisible, child) => AnimatedOpacity(
+                opacity: isFooterVisible ? 0 : 1,
+                duration: Durations.long4,
+                curve: Curves.easeInQuart,
+                child: ColorLine(
+                    colorSelected: widget.colorSelected,
+                    handleBrightnessChange: widget.handleBrightnessChange,
+                    handleColorSelect: widget.handleColorSelect),
+              ),
+            )
           ],
         ));
   }

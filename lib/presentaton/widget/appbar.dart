@@ -3,17 +3,17 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
+import 'package:me/presentaton/about/about.dart';
 import 'package:me/util/buttons/buttons.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ValueListenable<bool> isVisible;
-  final GlobalKey<ScaffoldState> skey;
+
   @override
   final Size preferredSize;
   const HomeAppBar({
     super.key,
     required this.isVisible,
-    required this.skey,
   }) : preferredSize = const Size.fromHeight(70.0);
 
   static const headeritalic = TextStyle(
@@ -102,7 +102,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                   label: "Projects",
                                 ),
                                 HoverButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => About(),
+                                      )),
                                   label: "About",
                                 ),
                                 HoverButton(

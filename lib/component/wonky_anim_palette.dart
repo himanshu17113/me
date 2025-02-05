@@ -25,7 +25,7 @@ class WonkyAnimPalette {
     Key? key,
   });
   static const Curve defaultCurve = Curves.easeInOut;
-
+ 
   // basic (settings unrelated to variable font)
   static WonkyAnimSetting scale({
     double from = 1,

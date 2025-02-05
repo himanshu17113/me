@@ -1,8 +1,6 @@
 // Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
-import 'dart:developer';
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart' show kDebugMode;
@@ -39,6 +37,7 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
   final List<String> _fvAxes = [];
   // default curve and animations in case user sets nothing for them
   late final defaultCurve = CurvedAnimation(parent: _animController, curve: const Interval(0, 1, curve: Curves.linear));
+    late final easeOutCubic = CurvedAnimation(parent: _animController, curve: const Interval(.2, 1, curve: Curves.easeOutCubic));
   late Animation _scaleAnimation = Tween<double>(begin: 1, end: 1).animate(defaultCurve);
   late Animation _offsetXAnimation = Tween<double>(begin: 0, end: 0).animate(defaultCurve);
   late Animation _offsetYAnimation = Tween<double>(begin: 0, end: 0).animate(defaultCurve);
@@ -93,17 +92,17 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
             color: ((widget.colorTyper == 0
                     ? ColorTween(
                             begin: colorScheme.primary.withAlpha(80), end: colorScheme.inversePrimary.withAlpha(120))
-                        .animate(defaultCurve)
+                        .animate(easeOutCubic)
                     : widget.colorTyper == 1
                         ? ColorTween(
                                 begin: colorScheme.secondary.withAlpha(60),
                                 end: colorScheme.secondaryContainer.withAlpha(160))
-                            .animate(defaultCurve)
+                            .animate(easeOutCubic)
                         : widget.colorTyper == 2
                             ? ColorTween(
                                     begin: colorScheme.secondaryContainer.withAlpha(80),
                                     end: colorScheme.tertiaryContainer.withAlpha(160))
-                                .animate(defaultCurve)
+                                .animate(easeOutCubic)
                             : _colorAnimation)
                 .value) as Color?,
             fontFamily: "SourGummy",
