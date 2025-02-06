@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'util/responsive.dart';
+
 class CupertinoTextStyles {
   static const TextStyle displayLarge = TextStyle(
       debugLabel: 'whiteCupertino displayLarge', fontFamily: 'CupertinoSystemDisplay', decoration: TextDecoration.none);
@@ -106,7 +108,6 @@ const TextStyle titleBig = TextStyle(
     debugLabel: 'englishLike titleLarge 2021',
     fontSize: 18,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
     height: 1.27,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
@@ -180,3 +181,36 @@ const TextStyle sm = TextStyle(fontSize: 24);
 const TextStyle md = TextStyle(fontSize: 36);
 const TextStyle lg = TextStyle(fontSize: 48);
 const TextStyle xl = TextStyle(fontSize: 60);
+
+TextStyle textStyle({String? fontFamily, required double fontSize, double wght = 400}) => responsive(
+    xs: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: fontSize * 0.6666,
+        fontVariations: [FontVariation('wght', wght)],
+        textBaseline: TextBaseline.alphabetic,
+        leadingDistribution: TextLeadingDistribution.even),
+    sm: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: fontSize * 0.7777,
+        fontVariations: [FontVariation('wght', wght)],
+        textBaseline: TextBaseline.alphabetic,
+        leadingDistribution: TextLeadingDistribution.even),
+    md: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: fontSize * 0.8888,
+        fontVariations: [FontVariation('wght', wght)],
+        textBaseline: TextBaseline.alphabetic,
+        leadingDistribution: TextLeadingDistribution.even),
+    lg: TextStyle(
+        inherit: false,
+        fontFamily: fontFamily,
+        fontSize: fontSize,
+        fontVariations: [FontVariation('wght', wght)],
+        textBaseline: TextBaseline.alphabetic,
+        leadingDistribution: TextLeadingDistribution.even),
+    xl: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: fontSize * 1.5,
+        fontVariations: [FontVariation('wght', wght)],
+        textBaseline: TextBaseline.alphabetic,
+        leadingDistribution: TextLeadingDistribution.even));

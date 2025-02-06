@@ -60,9 +60,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Spacer(),
+                    const Spacer(
+                      flex: 2,
+                    ),
                     Expanded(
-                      flex: 10,
+                      flex: 20,
                       child: FittedBox(
                         alignment: Alignment.centerLeft,
                         fit: BoxFit.scaleDown,
@@ -90,16 +92,20 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                       flex: 2,
                     ),
                     Visibility(
-                        visible: mediaQueryData.size.width > 900,
+                        visible: mediaQueryData.size.width > 1100,
                         replacement: const EndDrawerButton(),
                         child: Expanded(
-                            flex: 9,
+                            flex: 20,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 HoverButton(
                                   onPressed: () {},
-                                  label: "Projects",
+                                  label: "Work",
+                                ),
+                                HoverButton(
+                                  onPressed: () {},
+                                  label: "Experience",
                                 ),
                                 HoverButton(
                                   onPressed: () => Navigator.push(
@@ -122,7 +128,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 //     )),
                               ],
                             ))),
-                    const Spacer()
                   ],
                 )),
           ),

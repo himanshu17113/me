@@ -1,7 +1,4 @@
-library type_text;
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class TypeText extends StatefulWidget {
