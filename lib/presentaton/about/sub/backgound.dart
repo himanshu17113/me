@@ -34,19 +34,19 @@ class Backgound extends StatelessWidget {
             ),
             SizedBox(height: screenHeight * 0.1),
             const HorizontalLine(
-              title: "Journey",
+              title: "bac",
             ),
-            Padding(
-              padding: EdgeInsets.only(left: (screenWidth * 0.02) + 40, top: 20),
-              child: Text(
-                  "I started my coding journey by clearing my basics—data structures, algorithms, and the thrill and frustration of solving problems. From there, I dove into the Colored side of development and started doing native Android development, crafting apps that blended logic and creativity. Eager to learn new frameworks, I transitioned to Flutter,mastering Firebase, Sockets, and REST API integrations while adhering to best practices in state management, dependency injection, and modular. By my second year, I was applying these skills in the real world: first interning as a Flutter Developer at Hansraj Ventures, then contributing to sbazar at Daigo",
-                  style: TextStyle(
-                      fontSize: 32.0,
-                      height: 1.25,
-                      fontFamily: "Rubik",
-                      textBaseline: TextBaseline.alphabetic,
-                      leadingDistribution: TextLeadingDistribution.even)),
-            )
+            // Padding(
+            //   padding: EdgeInsets.only(left: screenWidth * 0.05, top: 20),
+            //   child: Text(
+            //       "I started my coding journey by clearing my basics—data structures, algorithms, and the thrill and frustration of solving problems. From there, I dove into the Colored side of development and started doing native Android development, crafting apps that blended logic and creativity. Eager to learn new frameworks, I transitioned to Flutter,mastering Firebase, Sockets, and REST API integrations while adhering to best practices in state management, dependency injection, and modular. By my second year, I was applying these skills in the real world: first interning as a Flutter Developer at Hansraj Ventures, then contributing to sbazar at Daigo",
+            //       style: TextStyle(
+            //           fontSize: 32.0,
+            //           height: 1.25,
+            //           fontFamily: "Rubik",
+            //           textBaseline: TextBaseline.alphabetic,
+            //           leadingDistribution: TextLeadingDistribution.even)),
+            // )
           ],
         ),
       ),
@@ -85,7 +85,7 @@ class HorizontalLine extends StatelessWidget {
                       duration: Durations.medium1,
                       height: 2,
                       color: Colors.black,
-                      width: visibily ? (screenWidth * 0.05) : 1,
+                      width: visibily ? (screenWidth * 0.06) : 1,
                     ),
                     SizedBox(
                       width: 180,
