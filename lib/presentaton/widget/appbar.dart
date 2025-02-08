@@ -71,7 +71,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                         child: Row(
                           children: [
                             CircleAvatar(
-                              backgroundImage: const NetworkImage('assets/images/profile.png', scale: 0.7),
+                              backgroundImage: const AssetImage('assets/images/profile.png'),
                             ),
                             const SizedBox(
                               width: 10,

@@ -19,6 +19,7 @@ class About extends StatelessWidget {
           isVisible: isVisible,
         ),
         body: ListView(
+          cacheExtent: 10000,
           children: [Intro(), Backgound()],
         ));
   }

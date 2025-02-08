@@ -1,8 +1,8 @@
 # Makefile for deploying Flutter web app to GitHub Pages
 
 # Update These Variables
-BASE_HREF = '/'
-GITHUB_REPO = https://github.com/himanshu17113/himanshu17113.github.io.git
+BASE_HREF = '/Himanshu/'
+GITHUB_REPO = https://github.com/himanshu17113/Himanshu.git
 BUILD_VERSION := $(shell grep 'version:' pubspec.yaml | awk '{print $$2}')
 
 deploy-web:
@@ -13,7 +13,7 @@ deploy-web:
 	flutter pub get
 
 	@echo "Building for web..."
-	flutter build web --release
+	flutter build web --base-href=/Himanshu/
 	
 
 	@echo "Deploying to git repository"
