@@ -206,6 +206,10 @@ class TypeTextState extends State<TypeText> {
   @override
   void didUpdateWidget(TypeText oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (oldWidget.style != widget.style) {
+      setState(() {});
+    }
+
     if (oldWidget.duration != widget.duration ||
         oldWidget.typingSpeed != widget.typingSpeed ||
         oldWidget.msPerCharacter != widget.msPerCharacter ||

@@ -136,39 +136,49 @@ const TextStyle md = TextStyle(fontSize: 36);
 const TextStyle lg = TextStyle(fontSize: 48);
 const TextStyle xl = TextStyle(fontSize: 60);
 
-TextStyle
-    textStyle({double? wordSpacing, double? letterSpacing, String? fontFamily, required double fontSize, double wght = 400}) =>
-        responsive(
-            xs: TextStyle(
-                fontFamily: fontFamily,
-                wordSpacing: wordSpacing,
-                fontSize: fontSize * 0.6666,
-                letterSpacing: letterSpacing,
-                fontVariations: [FontVariation('wght', wght)],
-                textBaseline: TextBaseline.alphabetic,
-                leadingDistribution: TextLeadingDistribution.even),
-            sm: TextStyle(
-                fontFamily: fontFamily,
-                fontSize: fontSize * 0.7777,
-                fontVariations: [FontVariation('wght', wght)],
-                textBaseline: TextBaseline.alphabetic,
-                leadingDistribution: TextLeadingDistribution.even),
-            md: TextStyle(
-                fontFamily: fontFamily,
-                fontSize: fontSize * 0.8888,
-                fontVariations: [FontVariation('wght', wght)],
-                textBaseline: TextBaseline.alphabetic,
-                leadingDistribution: TextLeadingDistribution.even),
-            lg: TextStyle(
-                inherit: false,
-                fontFamily: fontFamily,
-                fontSize: fontSize,
-                fontVariations: [FontVariation('wght', wght)],
-                textBaseline: TextBaseline.alphabetic,
-                leadingDistribution: TextLeadingDistribution.even),
-            xl: TextStyle(
-                fontFamily: fontFamily,
-                fontSize: fontSize * 1.5,
-                fontVariations: [FontVariation('wght', wght)],
-                textBaseline: TextBaseline.alphabetic,
-                leadingDistribution: TextLeadingDistribution.even));
+TextStyle textStyle(
+        {double? wordSpacing,
+        double? letterSpacing,
+        String? fontFamily,
+        required double fontSize,
+        double? height,
+     
+        double wght = 400}) =>
+    responsive(
+        xs: TextStyle(
+            fontFamily: fontFamily,
+            wordSpacing: wordSpacing,
+            height: height,
+            fontSize: fontSize * 0.6666,
+            letterSpacing: letterSpacing,
+            fontVariations: [FontVariation('wght', wght)],
+            textBaseline: TextBaseline.alphabetic,
+            leadingDistribution: TextLeadingDistribution.even),
+        sm: TextStyle(
+            fontFamily: fontFamily,
+            height: height,
+            fontSize: fontSize * 0.7777,
+            fontVariations: [FontVariation('wght', wght)],
+            textBaseline: TextBaseline.alphabetic,
+            leadingDistribution: TextLeadingDistribution.even),
+        md: TextStyle(
+            fontFamily: fontFamily,
+            height: height,
+            fontSize: fontSize * 0.8888,
+            fontVariations: [FontVariation('wght', wght)],
+            textBaseline: TextBaseline.alphabetic,
+            leadingDistribution: TextLeadingDistribution.even),
+        lg: TextStyle(
+            fontFamily: fontFamily,
+            height: height,
+            fontSize: fontSize,
+            fontVariations: [FontVariation('wght', wght)],
+            textBaseline: TextBaseline.alphabetic,
+            leadingDistribution: TextLeadingDistribution.even),
+        xl: TextStyle(
+            fontFamily: fontFamily,
+            height: height,
+            fontSize: fontSize * 1.5,
+            fontVariations: [FontVariation('wght', wght)],
+            textBaseline: TextBaseline.alphabetic,
+            leadingDistribution: TextLeadingDistribution.even));

@@ -5,6 +5,9 @@ import '../home/pages/home.dart';
 import '../widget/appbar.dart';
 import 'sub/backgound.dart';
 import 'sub/intro.dart';
+import 'sub/jouney.dart';
+import 'sub/tools.dart';
+import 'sub/wiltd.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
@@ -20,7 +23,7 @@ class About extends StatelessWidget {
         ),
         body: ListView(
           cacheExtent: 10000,
-          children: [Intro(), Backgound()],
+          children: [Intro(), Backgound(), Journey(), WhatILoveToDo(), Tools()],
         ));
   }
 }

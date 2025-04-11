@@ -23,7 +23,7 @@ class ProjectContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final projectImage = Expanded(
-      flex: 2,
+      flex: 5,
       child: Container(
         decoration: BoxDecoration(
           gradient: themeMode == ThemeMode.dark
@@ -39,11 +39,12 @@ class ProjectContainer extends StatelessWidget {
                   stops: [0.2, 0.4, 0.6, 0.8, 1.0], // Control the gradient spread
                 ),
           color: darkColor,
-          borderRadius: BorderRadius.circular(36),
+          borderRadius: BorderRadius.circular(52),
         ),
       ),
     );
     final aboutProject = Expanded(
+      flex: 3,
       child: Container(
         margin: EdgeInsets.all(screenWidth * .02),
         decoration: BoxDecoration(
@@ -64,15 +65,15 @@ class ProjectContainer extends StatelessWidget {
           ];
     return AnimatedContainer(
       duration: Durations.extralong4,
-      height: 400,
+      height: 540,
       curve: Curves.easeInOut,
       width: !isVisble ? 0 : screenWidth,
       alignment: Alignment.center,
-      margin: EdgeInsets.fromLTRB(screenHeight * (context.isMobile ? .02 : .04), screenHeight * 0.06,
-          context.isMobile ? 50 : screenWidth * 0.04, screenHeight * 0.06),
+      margin: EdgeInsets.fromLTRB(screenHeight * (context.isMobile ? .02 : .05), screenHeight * 0.05,
+          context.isMobile ? 50 : screenWidth * 0.05, screenHeight * 0.02),
       padding: EdgeInsets.all(!isVisble ? 0 : screenWidth * .012),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(64),
         color: Theme.of(context).colorScheme.surfaceContainerLow,
       ),
       child: Container(
@@ -86,9 +87,9 @@ class ProjectContainer extends StatelessWidget {
             ),
           ],
           color: Theme.of(context).colorScheme.surfaceContainerLow,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(52),
         ),
-        child: !context.isMobile
+        child: !context.isTablet
             ? Row(children: widgets)
             : Column(
                 children: widgets,
