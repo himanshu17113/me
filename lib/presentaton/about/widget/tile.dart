@@ -60,13 +60,13 @@ class _HorizontalLineState extends State<HorizontalLine> {
                   TypeText(
                     visibily ? " ${widget.title}" : "",
                     typingSpeed: 10,
-                    style: textStyle(fontFamily: "noe", fontSize: widget.size),
+                    style: textStyle(fontFamily: "noe", fontSize: widget.size, height: 1),
                     delayBeforeStart: Duration(milliseconds: length * 100 + 250),
                   ),
                   Align(
                     alignment: show ? Alignment.centerLeft : Alignment.centerRight,
                     child: AnimatedContainer(
-                      height: 20,
+                      height: 32,
                       onEnd: () => show
                           ? setState(
                               () => show = false,

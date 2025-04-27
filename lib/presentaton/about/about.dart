@@ -23,7 +23,7 @@ class About extends StatelessWidget {
         ),
         body: ListView(
           cacheExtent: 10000,
-          children: [Intro(), Backgound(), Journey(), WhatILoveToDo(), Tools()],
+          children: const [Intro(), Backgound(), Journey(), WhatILoveToDo(), Tools()],
         ));
   }
 }

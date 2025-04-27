@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 import 'package:me/constants.dart';
 import 'const.dart';
-import 'presentaton/about/about.dart';
 import 'presentaton/home/pages/home.dart';
 
 void main() {
