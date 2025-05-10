@@ -49,7 +49,7 @@ class _HorizontalLineState extends State<HorizontalLine> {
             AnimatedContainer(
               duration: Durations.medium1,
               height: 2,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
               width: visibily ? (screenWidth * widget.size * 0.001 + 10) : 1,
             ),
             SizedBox(
@@ -73,7 +73,7 @@ class _HorizontalLineState extends State<HorizontalLine> {
                             )
                           : null,
                       duration: Duration(milliseconds: length * 100),
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
                       curve: Curves.easeInCubic,
                       width: show && visibily ? length * 22 : 0,
                     ),

@@ -13,8 +13,7 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
   late final Animation<double> animation;
   @override
   void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3), animationBehavior: AnimationBehavior.preserve);
+    animationController = AnimationController(vsync: this, duration: Duration(seconds: 3), animationBehavior: AnimationBehavior.preserve);
     animationController.addListener(() => setState(() {}));
 
     animationController.repeat();
@@ -35,16 +34,14 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
         Container(
           width: 2,
           height: Tween<double>(begin: 0, end: screenHeight * .5)
-              .animate(CurvedAnimation(
-                  parent: animationController, curve: Interval(0, 0.5, curve: Curves.fastLinearToSlowEaseIn)))
+              .animate(CurvedAnimation(parent: animationController, curve: Interval(0, 0.5, curve: Curves.fastLinearToSlowEaseIn)))
               .value,
-          color: Colors.black,
+          color: Theme.of(context).colorScheme.onPrimaryContainer,
         ),
         Container(
           width: 4,
           height: Tween<double>(begin: 0, end: screenHeight * .5)
-              .animate(CurvedAnimation(
-                  parent: animationController, curve: Interval(0.5, 1, curve: Curves.fastLinearToSlowEaseIn)))
+              .animate(CurvedAnimation(parent: animationController, curve: Interval(0.5, 1, curve: Curves.fastLinearToSlowEaseIn)))
               .value,
           color: theme.scaffoldBackgroundColor,
         ),

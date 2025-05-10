@@ -3,7 +3,6 @@ import 'package:me/const.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 final ValueNotifier<bool> isFooterVisiblex = ValueNotifier(false);
-final ValueNotifier<bool> bgColorx = ValueNotifier(false);
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -18,29 +17,22 @@ class Footer extends StatelessWidget {
             isFooterVisiblex.value = true;
             // bgColorx.value = true;
           } else {
-            bgColorx.value = false;
             isFooterVisiblex.value = false;
           }
         },
         key: const ValueKey("footer"),
-        child: ValueListenableBuilder(
-          valueListenable: bgColorx,
-          builder: (context, bgColor, child) {
-            return Container(
-              color: bgColor && isFooterVisible ? Theme.of(context).colorScheme.primaryFixed : Colors.transparent,
-              width: screenWidth,
-              height: screenHeight,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  UpperStipes(),
-                  LowerStripes(),
-                ],
-              ),
-            );
-          },
+        child: SizedBox(
+          width: screenWidth,
+          height: screenHeight,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(flex: 6, child: UpperStipes()),
+              Expanded(flex: 4, child: LowerStripes()),
+            ],
+          ),
         ),
       ),
     );
@@ -54,9 +46,7 @@ class LowerStripes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
       children: [
         AnimatedContainer(
           color: Theme.of(context).colorScheme.onPrimaryFixed,
@@ -72,16 +62,15 @@ class LowerStripes extends StatelessWidget {
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
           width: isFooterVisiblex.value ? screenWidth : 0,
-          height: screenHeight * .13,
+          height: screenHeight * .27,
         ),
         AnimatedContainer(
-          onEnd: () => bgColorx.value = true,
           color: Theme.of(context).colorScheme.onPrimaryFixed,
           duration: Durations.extralong4,
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
           width: isFooterVisiblex.value ? screenWidth : 0,
-          height: screenHeight * .13,
+          height: screenHeight * .4,
         ),
       ],
     );
@@ -95,8 +84,7 @@ class UpperStipes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
       children: [
         AnimatedContainer(
           alignment: Alignment.topRight,
@@ -113,7 +101,7 @@ class UpperStipes extends StatelessWidget {
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
           width: isFooterVisiblex.value ? screenWidth : 0,
-          height: screenHeight * .15,
+          height: screenHeight * .3,
         ),
         AnimatedContainer(
           color: Theme.of(context).colorScheme.primaryFixed,
@@ -121,7 +109,7 @@ class UpperStipes extends StatelessWidget {
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
           width: isFooterVisiblex.value ? screenWidth : 0,
-          height: screenHeight * .15,
+          height: screenHeight * .45,
         ),
         AnimatedContainer(
           color: Theme.of(context).colorScheme.primaryFixed,
@@ -129,7 +117,7 @@ class UpperStipes extends StatelessWidget {
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
           width: isFooterVisiblex.value ? screenWidth : 0,
-          height: screenHeight * .15,
+          height: screenHeight * .6,
         ),
       ],
     );
