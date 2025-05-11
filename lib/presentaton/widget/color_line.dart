@@ -7,8 +7,7 @@ class ColorLine extends StatelessWidget {
   final ColorSeed colorSelected;
   final void Function(bool useLightMode) handleBrightnessChange;
   final void Function(int value) handleColorSelect;
-  const ColorLine(
-      {super.key, required this.colorSelected, required this.handleBrightnessChange, required this.handleColorSelect});
+  const ColorLine({super.key, required this.colorSelected, required this.handleBrightnessChange, required this.handleColorSelect});
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +29,14 @@ class ColorLine extends StatelessWidget {
                   color: Colors.deepOrangeAccent,
                   endIndent: 30,
                 ),
-                Visibility(visible: isLight, child: LightBulb()),
-                Positioned(
-                    bottom: isLight ? 10 : 0,
-                    child:
-                        IconButton(onPressed: () => handleBrightnessChange(!isLight), icon: const Icon(Icons.light))),
+                Visibility(
+                  visible: isLight,
+                  maintainSize: true,
+                  maintainState: true,
+                  maintainAnimation: true,
+                  child: LightBulb(),
+                ),
+                Positioned(bottom: isLight ? 10 : 0, child: IconButton(onPressed: () => handleBrightnessChange(!isLight), icon: const Icon(Icons.light))),
               ],
             ),
           ),
@@ -98,7 +100,7 @@ class LightBulb extends StatelessWidget {
     return ClipPath(
       clipper: ConeClipper(),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 3.0, tileMode: TileMode.repeated),
+        filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0, tileMode: TileMode.repeated),
         child: Container(
           width: 50,
           height: 40,

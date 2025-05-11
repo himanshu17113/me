@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/images/profile.png
     - assets/images/svg/
+
  # Apply transformer to a folder of SVGs
     - path: assets/images/svg/
       transformers:
