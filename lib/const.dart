@@ -46,7 +46,7 @@ String stripe = "assets/images/svg/stripe.svg";
 String visualStudioCode = "assets/images/svg/visual-studio-code.svg";
 String xcode = "assets/images/svg/xcode.svg";
 String linkdin = "assets/images/svg/linkdin.svg";
-
+String workStump = "assets/images/svg/work_stump.svg";
 const language = [
   "assets/images/svg/dart.svg",
   "assets/images/svg/js.svg",

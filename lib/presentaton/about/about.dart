@@ -18,8 +18,8 @@ class About extends StatelessWidget {
     colorScheme = theme.colorScheme;
     return Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: HomeAppBar(
-          isVisible: isVisible,
+        appBar: const HomeAppBar(
+        
         ),
         body: ListView(
           cacheExtent: 10000,

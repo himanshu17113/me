@@ -4,16 +4,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
 import 'package:me/presentaton/about/about.dart';
+import 'package:me/presentaton/home/pages/home.dart';
+import 'package:me/presentaton/work/work.dart';
 import 'package:me/util/buttons/buttons.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final ValueListenable<bool> isVisible;
+  // final ValueListenable<bool> isVisible;
 
   @override
   final Size preferredSize;
   const HomeAppBar({
     super.key,
-    required this.isVisible,
+    //   required this.isVisible,
   }) : preferredSize = const Size.fromHeight(70.0);
 
   static const headeritalic = TextStyle(
@@ -100,7 +102,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 HoverButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Work(),
+                                      )),
                                   label: "Work",
                                 ),
                                 HoverButton(
