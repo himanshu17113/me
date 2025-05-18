@@ -1,10 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 import '../../typo.dart';
-import '../../util/animation/FadeAnimation.dart';
 import '../about/widget/tile.dart';
 import '../widget/appbar.dart';
+import 'component/experience.dart';
+import 'component/tile.dart';
 
 class Work extends StatefulWidget {
   const Work({super.key});
@@ -15,6 +18,34 @@ class Work extends StatefulWidget {
 
 class _WorkState extends State<Work> {
   bool _isHovered = false;
+  bool down = true;
+  final ScrollController _scrollController = ScrollController();
+  double _lastOffset = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels > _lastOffset) {
+      down = true;
+      log("down");
+    } else if (_scrollController.position.pixels < _lastOffset) {
+      down = false;
+      log("up");
+    }
+    _lastOffset = _scrollController.position.pixels;
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
@@ -25,6 +56,7 @@ class _WorkState extends State<Work> {
         // extendBodyBehindAppBar: true,
         appBar: HomeAppBar(),
         body: ListView(
+          controller: _scrollController,
           cacheExtent: 0,
           padding: EdgeInsets.only(right: screenWidth * 0.04),
           children: [
@@ -63,105 +95,69 @@ class _WorkState extends State<Work> {
               height: 8,
               indent: screenWidth * 0.04,
             ),
-            SizedBox(height: 32),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                HorizontalLine(
-                  title: "Flutter Developer",
-                  edgeInsets: EdgeInsets.symmetric(vertical: mediaQueryData.size.width * 0.018),
-                ),
-                Text(
-                  "06/2024 - Present",
-                  style: textStyle(
-                    fontSize: 22,
-                    fontFamily: "Rubik",
-                  ),
-                )
-              ],
+            ExperienceSection(
+              time: "06/2024 - Present",
+              delegation: "Flutter Developer",
+              company: "Unanime Planet · Full-time",
+              location: "Sede Aveiro, Portugal · Remote",
+              description:
+                  "As the lead developer for the Uprides mobile application, available on both Android and iOS, I managed the complete development lifecycle, from initial design to deployment and ongoing maintenance. Working closely with backend engineers, UI/UX designers, and product managers, I developed and integrated key features that enhanced user experience and performance.",
             ),
-            Padding(
-              padding: EdgeInsets.only(left: screenWidth * 0.05),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Unanime Planet · Full-time",
-                      style: textStyle(
-                        fontSize: 14,
-                        color: theme.colorScheme.onSurfaceVariant.withAlpha(180),
-                        wght: 420,
-                        fontFamily: "Rubik",
-                      )),
-                  Text("Sede Aveiro, Portugal · Remote",
-                      style: textStyle(
-                        fontSize: 14,
-                        color: theme.colorScheme.onSurfaceVariant.withAlpha(180),
-                        wght: 420,
-                        fontFamily: "Rubik",
-                      )),
-                  Padding(
-                    padding: EdgeInsets.only(right: mediaQueryData.size.width * 0.15, top: mediaQueryData.size.width * 0.02),
-                    child: Text(
-                      "As the lead developer for the Uprides mobile application, available on both Android and iOS, I managed the complete development lifecycle, from initial design to deployment and ongoing maintenance. Working closely with backend engineers, UI/UX designers, and product managers, I developed and integrated key features that enhanced user experience and performance.",
-                      style: textStyle(fontFamily: "Rubik", fontSize: 22),
-                    ),
-                  ),
-                ],
-              ),
+            ...{
+              "Feature Development: ":
+                  "Implemented complex real-time functionalities, including live map integration for ride tracking and advanced map animations to deliver a visually engaging user experience.",
+              "Performance Optimization: ":
+                  "Reduced application size and load time by optimizing assets, implementing efficient state management, and minimizing API calls.",
+              "Localization & Accessibility: ":
+                  "Developed responsive layouts and localization capabilities to ensure a seamless experience across diverse devices and regions.",
+              "User Interaction: ":
+                  "Streamlined user workflows, minimizing user inputs while maintaining functionality, and implemented intuitive navigation flows.",
+              "Project Management: ":
+                  "Utilized Jira for task management and Git for version control, ensuring smooth workflow coordination and efficient release cycles."
+            }.entries.map((entry) => Tile(
+                  title: entry.key,
+                  description: entry.value,
+                  down: down,
+                )),
+            ExperienceSection(
+              time: "07/2023 - 06/2024",
+              delegation: "Software Engineer",
+              company: "Diago · Full-time",
+              location: "Location not specified",
+              description:
+                  "Developed and maintained the Sbazar application available on the Play Store and App Store. Implemented complex animations for a smoother and more engaging user experience. Redesigned app architecture to enhance performance and maintainability. Utilized Jira for project management, tracking user stories, defects, and sprint details.",
             ),
-            SizedBox(height: 26),
-            ...List.generate(
-              10,
-              (index) => Tile(
-                title: "Feature Development:  ",
-                description:
-                    "User Interaction: Streamlined user workflows, minimizing user inputs while maintaining functionality, and implemented intuitive navigation flows.Pro",
-              ),
-            )
+            ...{
+              "Sbazar App Development: ": "Developed and maintained the Sbazar application available on the Play Store and App Store.",
+              "Animations & UX Improvements: ": "Implemented complex animations for a smoother and more engaging user experience.",
+              "Architecture Redesign: ": "Redesigned app architecture to enhance performance and maintainability.",
+              "Project Management: ": "Utilized Jira for project management, tracking user stories, defects, and sprint details.",
+            }.entries.map((entry) => Tile(
+                  title: entry.key,
+                  description: entry.value,
+                  down: down,
+                )),
+            ExperienceSection(
+              time: "12/2022 - 07/2023",
+              delegation: "Flutter Developer",
+              company: "Hansraj Ventures · Full-time",
+              location: "Remote",
+              description:
+                  "Designed, implemented, and tested the Music Book application using Dart and GETX for both iOS and Android. Built the E-magz application from scratch, integrating REST APIs, state management, and managing app and widget lifecycle. Collaborated with clients for requirement walkthroughs and reporting. Utilized AWS S3 for data storage and retrieval.",
+            ),
+            ...{
+              "Music Book App Development: ":
+                  "Designed, implemented, and tested the Music Book application using Dart and GETX for both iOS and Android platforms.",
+              "E-magz App Development: ":
+                  "Built the E-magz application from scratch, integrating REST APIs, state management, and managing app and widget lifecycle.",
+              "Client Collaboration: ": "Collaborated with clients for requirement walkthroughs and reporting.",
+              "Cloud Integration: ": "Utilized AWS S3 for data storage and retrieval.",
+            }.entries.map((entry) => Tile(
+                  title: entry.key,
+                  description: entry.value,
+                  down: down,
+                )),
           ],
         ));
-  }
-}
-
-class Tile extends StatelessWidget {
-  final String title;
-  final String description;
-  const Tile({
-    super.key,
-    required this.title,
-    required this.description,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
-        tween: Tween(begin: 0.0, end: 1.0),
-        curve: Curves.easeOut,
-        duration: Duration(seconds: 1),
-        builder: (context, value, child) => Padding(
-              padding: EdgeInsets.only(top: 24 * (1 - value), bottom: 24 * value),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 7,
-                    margin: EdgeInsets.only(right: 26, top: 14, left: screenWidth * 0.05 + 14),
-                    height: 7,
-                    decoration: BoxDecoration(shape: BoxShape.circle, color: theme.colorScheme.secondary.withAlpha((value * 255).toInt())),
-                  ),
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(
-                        style: TextStyle(height: 1.6, color: theme.colorScheme.onSurface.withAlpha((value * 255).toInt())),
-                        children: <TextSpan>[
-                          TextSpan(text: '$title ', style: textStyle(fontSize: 22, fontweight: FontWeight.w600, letterSpacing: 1.6)),
-                          TextSpan(text: description, style: textStyle(fontFamily: "Rubik", fontSize: 22, wght: 380)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ));
   }
 }

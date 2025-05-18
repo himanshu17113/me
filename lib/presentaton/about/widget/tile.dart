@@ -10,7 +10,7 @@ class HorizontalLine extends StatefulWidget {
   final double size;
   final EdgeInsets? edgeInsets;
 
-  const HorizontalLine({super.key, required this.title, this.size = 36,   this.edgeInsets});
+  const HorizontalLine({super.key, required this.title, this.size = 36, this.edgeInsets});
 
   @override
   State<HorizontalLine> createState() => _HorizontalLineState();
@@ -28,65 +28,46 @@ class _HorizontalLineState extends State<HorizontalLine> {
 
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: ValueKey(widget.title),
-      onVisibilityChanged: (info) {
-        if (mounted) {
-          if (visibily != (info.visibleFraction > .001)) {
-            setState(
-              () {
-                debugPrint("set sttate");
-                visibily = (info.visibleFraction > .001);
-                if (!visibily) {
-                  show = true;
-                }
-              },
-            );
-          }
-        }
-      },
-      child: SizedBox(
-        child: Row(
-          children: [
-            AnimatedContainer(
-              duration: Durations.medium1,
-              height: 2,
-              margin:widget.edgeInsets,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-              width: visibily ? (screenWidth * widget.size * 0.001 + 10) : 1,
-            ),
-            SizedBox(
-              width: length * 22,
-              child: Stack(
-                alignment: Alignment.centerLeft,
-                children: [
-                  TypeText(
-                    visibily ? " ${widget.title}" : "",
-                    typingSpeed: 10,
-                    style: textStyle(fontFamily: "noe", fontSize: widget.size, height: 1),
-                    delayBeforeStart: Duration(milliseconds: length * 100 + 250),
-                  ),
-                  Align(
-                    alignment: show ? Alignment.centerLeft : Alignment.centerRight,
-                    child: AnimatedContainer(
-                      height: 32,
-                      onEnd: () => show
-                          ? setState(
-                              () => show = false,
-                            )
-                          : null,
-                      duration: Duration(milliseconds: length * 100),
-                      color: Theme.of(context).colorScheme.onSecondaryContainer,
-                      curve: Curves.easeInCubic,
-                      width: show && visibily ? length * 22 : 0,
-                    ),
-                  ),
-                ],
+    return TweenAnimationBuilder(
+      duration: Duration(seconds: 2),
+      tween: Tween<double>(begin: 0, end: 3),
+      builder: (context, value, child) {
+        final bool isleft = value > 1 && value < 2;
+        return SizedBox(
+          child: Row(
+            children: [
+              Container(
+                height: 2,
+                margin: widget.edgeInsets,
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                width: (screenWidth * widget.size * 0.001 + 10) * ((value).clamp(0, 1)),
               ),
-            )
-          ],
-        ),
-      ),
+              SizedBox(
+                width: length * 22,
+                child: Stack(
+                  alignment: Alignment.centerLeft,
+                  children: [
+                    value > 2
+                        ? TypeText(
+                            " ${widget.title}",
+                            typingSpeed: 10,
+                            style: textStyle(fontFamily: "noe", fontSize: widget.size, height: 1),
+                          )
+                        : SizedBox.shrink(),
+                    Align(
+                      alignment: isleft ? Alignment.centerLeft : Alignment.centerRight,
+                      child: Container(
+                          height: 32,
+                          color: Theme.of(context).colorScheme.onSecondaryContainer,
+                          width: value < 1 ? 0 : length * 20 * (isleft ? ((value - 1)) : (3 - value))),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

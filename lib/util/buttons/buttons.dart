@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:me/util/extensions/extensions.dart';
 import '../../typo.dart';
 import '../constant_sizes.dart';
 
