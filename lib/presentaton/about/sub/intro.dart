@@ -30,7 +30,7 @@ class Intro extends StatelessWidget {
                       quarterTurns: 3,
                       child: Text(
                         "  About",
-                        style: TextStyle(fontSize: 24),
+                        style: textStyle(fontSize: 24),
                       )),
                   Expanded(flex: 6, child: Line())
                 ],

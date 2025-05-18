@@ -24,7 +24,12 @@ class _HoverButtonState extends State<HoverButton> {
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = context.adaptive(titleSmall, titleMedium, md: titleBig, xl: titleLarge);
+    final labelStyle = textStyle(
+      fontSize: 18.0,
+      //  fontWeight: FontWeight.w400,
+      letterSpacing: 0.0,
+      height: 1.27,
+    );
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -35,9 +40,7 @@ class _HoverButtonState extends State<HoverButton> {
             duration: Durations.medium4,
             child: Container(
               foregroundDecoration: ShapeDecoration(
-                  shape: widget.isRounded
-                      ? const StadiumBorder()
-                      : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
+                  shape: widget.isRounded ? const StadiumBorder() : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
                   color: Theme.of(context).colorScheme.secondaryContainer),
               child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
@@ -63,10 +66,8 @@ class _HoverButtonState extends State<HoverButton> {
                   }),
               iconAlignment: IconAlignment.end,
               style: OutlinedButton.styleFrom(
-                  shape: widget.isRounded
-                      ? const StadiumBorder()
-                      : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
+                  shape: widget.isRounded ? const StadiumBorder() : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
               onPressed: widget.onPressed,
               icon: widget.icon != null
                   ? AnimatedPadding(

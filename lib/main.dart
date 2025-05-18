@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 import 'package:me/constants.dart';
+import 'package:me/presentaton/work/work.dart';
 import 'const.dart';
 import 'presentaton/home/pages/home.dart';
 
@@ -39,43 +40,43 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    mediaQueryData = MediaQuery.of(context);
-
+  
+    theme = Theme.of(context);
+    colorScheme = theme.colorScheme; 
+     mediaQueryData = MediaQuery.of(context);
     screenHeight = mediaQueryData.size.height;
     screenWidth = mediaQueryData.size.width;
     return Layout(
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Portfolio',
-        //  //   initialRoute: Routes.home,
-        //     routes: Routes.routes,
+          debugShowCheckedModeBanner: false,
+          title: 'Portfolio',
+          //  //   initialRoute: Routes.home,
+          //     routes: Routes.routes,
 
-        scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        themeMode: themeMode,
-        theme: ThemeData(
-          colorSchemeSeed: colorSelected.color,
-          useMaterial3: true,
-          brightness: Brightness.light,
-        ),
-        darkTheme: ThemeData(
-          colorSchemeSeed: colorSelected.color,
-          useMaterial3: true,
-          brightness: Brightness.dark,
-        ),
-        highContrastDarkTheme:
-            ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
-        highContrastTheme: ThemeData.from(
-            colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
-        home:
-            //About()
+          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          themeMode: themeMode,
+          theme: ThemeData(
+            colorSchemeSeed: colorSelected.color,
+            useMaterial3: true,
+            brightness: Brightness.light,
+          ),
+          darkTheme: ThemeData(
+            colorSchemeSeed: colorSelected.color,
+            useMaterial3: true,
+            brightness: Brightness.dark,
+          ),
+          highContrastDarkTheme: ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
+          highContrastTheme: ThemeData.from(colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
+          home: Work()
+          //About()
 
-            Home(
-          useLightMode: useLightMode,
-          colorSelected: colorSelected,
-          handleBrightnessChange: handleBrightnessChange,
-          handleColorSelect: handleColorSelect,
-        ),
-      ),
+          //     Home(
+          //   useLightMode: useLightMode,
+          //   colorSelected: colorSelected,
+          //   handleBrightnessChange: handleBrightnessChange,
+          //   handleColorSelect: handleColorSelect,
+          // ),
+          ),
     );
   }
 }

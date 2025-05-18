@@ -140,15 +140,18 @@ TextStyle textStyle(
         {double? wordSpacing,
         double? letterSpacing,
         String? fontFamily,
+        Color? color,
         required double fontSize,
         double? height,
-     
-        double wght = 400}) =>
+        double wght = 400,
+        FontWeight? fontweight}) =>
     responsive(
         xs: TextStyle(
             fontFamily: fontFamily,
+            fontWeight: fontweight,
             wordSpacing: wordSpacing,
             height: height,
+            color: color,
             fontSize: fontSize * 0.6666,
             letterSpacing: letterSpacing,
             fontVariations: [FontVariation('wght', wght)],
@@ -157,6 +160,8 @@ TextStyle textStyle(
         sm: TextStyle(
             fontFamily: fontFamily,
             height: height,
+            color: color,
+            fontWeight: fontweight,
             fontSize: fontSize * 0.7777,
             fontVariations: [FontVariation('wght', wght)],
             textBaseline: TextBaseline.alphabetic,
@@ -164,6 +169,8 @@ TextStyle textStyle(
         md: TextStyle(
             fontFamily: fontFamily,
             height: height,
+            color: color,
+            fontWeight: fontweight,
             fontSize: fontSize * 0.8888,
             fontVariations: [FontVariation('wght', wght)],
             textBaseline: TextBaseline.alphabetic,
@@ -172,6 +179,8 @@ TextStyle textStyle(
             fontFamily: fontFamily,
             height: height,
             fontSize: fontSize,
+            fontWeight: fontweight,
+            color: color,
             fontVariations: [FontVariation('wght', wght)],
             textBaseline: TextBaseline.alphabetic,
             leadingDistribution: TextLeadingDistribution.even),
@@ -179,6 +188,8 @@ TextStyle textStyle(
             fontFamily: fontFamily,
             height: height,
             fontSize: fontSize * 1.5,
+            fontWeight: fontweight,
+            color: color,
             fontVariations: [FontVariation('wght', wght)],
             textBaseline: TextBaseline.alphabetic,
             leadingDistribution: TextLeadingDistribution.even));

@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
 import 'package:me/presentaton/about/about.dart';
@@ -66,7 +64,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                       flex: 2,
                     ),
                     Expanded(
-                      flex: 20,
+                      flex: 15,
                       child: FittedBox(
                         alignment: Alignment.centerLeft,
                         fit: BoxFit.scaleDown,
@@ -94,10 +92,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                       flex: 2,
                     ),
                     Visibility(
-                        visible: mediaQueryData.size.width > 1100,
+                        visible: mediaQueryData.size.width > 750,
                         replacement: const EndDrawerButton(),
                         child: Expanded(
-                            flex: 20,
+                            flex: 14,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -109,10 +107,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                       )),
                                   label: "Work",
                                 ),
-                                HoverButton(
-                                  onPressed: () {},
-                                  label: "Experience",
-                                ),
+                                // HoverButton(
+                                //   onPressed: () {},
+                                //   label: "Experience",
+                                // ),
                                 HoverButton(
                                   onPressed: () => Navigator.push(
                                       context,

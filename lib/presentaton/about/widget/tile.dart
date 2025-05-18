@@ -8,7 +8,9 @@ import '../../component/typer.dart';
 class HorizontalLine extends StatefulWidget {
   final String title;
   final double size;
-  const HorizontalLine({super.key, required this.title, this.size = 36});
+  final EdgeInsets? edgeInsets;
+
+  const HorizontalLine({super.key, required this.title, this.size = 36,   this.edgeInsets});
 
   @override
   State<HorizontalLine> createState() => _HorizontalLineState();
@@ -49,6 +51,7 @@ class _HorizontalLineState extends State<HorizontalLine> {
             AnimatedContainer(
               duration: Durations.medium1,
               height: 2,
+              margin:widget.edgeInsets,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
               width: visibily ? (screenWidth * widget.size * 0.001 + 10) : 1,
             ),
