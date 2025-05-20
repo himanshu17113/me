@@ -1,18 +1,18 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+
 import 'package:me/const.dart';
-import 'package:me/presentaton/about/about.dart';
+
 import 'package:me/presentaton/home/pages/home.dart';
 import 'package:me/presentaton/work/work.dart';
 import 'package:me/util/buttons/buttons.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  // final ValueListenable<bool> isVisible;
-
   @override
   final Size preferredSize;
   const HomeAppBar({
     super.key,
+
     //   required this.isVisible,
   }) : preferredSize = const Size.fromHeight(70.0);
 
@@ -112,11 +112,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 //   label: "Experience",
                                 // ),
                                 HoverButton(
-                                  onPressed: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => About(),
-                                      )),
+                                  onPressed: () => Navigator.pushNamed(context, '/about'),
                                   label: "About",
                                 ),
                                 HoverButton(

@@ -32,8 +32,8 @@ class AnimatedPathPainter extends CustomPainter {
     double width = size.width;
     return Path()
       ..moveTo(0, height * 0.5)
-      ..quadraticBezierTo(width / 2, height, width / 2 - 30, height * 0.5)
-      ..quadraticBezierTo(width / 2 - 30, 0, width * 0.95, height * 0.3);
+      ..quadraticBezierTo(width / 2, height, width / 2, height * 0.5)
+      ..quadraticBezierTo(width / 2, 0, width, height * 0.3);
   }
 
   @override

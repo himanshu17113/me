@@ -9,7 +9,12 @@ import '../../widget/appbar.dart';
 import '../../../constants.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key, required this.useLightMode, required this.colorSelected, required this.handleBrightnessChange, required this.handleColorSelect});
+  const Home(
+      {super.key,
+      required this.useLightMode,
+      required this.colorSelected,
+      required this.handleBrightnessChange,
+      required this.handleColorSelect});
   final bool useLightMode;
   final ColorSeed colorSelected;
   final void Function(bool useLightMode) handleBrightnessChange;
@@ -19,13 +24,9 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-// ValueListenable<bool>
-final ValueNotifier<bool> isVisible = ValueNotifier(true);
-
 class _HomeState extends State<Home> {
-  final ScrollController scrollController = ScrollController();
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
-
+  final ScrollController scrollController = ScrollController();
   @override
   void initState() {
     scrollController.addListener(() {
@@ -47,6 +48,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     theme = Theme.of(context);
     colorScheme = theme.colorScheme;
+    final ScrollController scrollController = ScrollController();
     // mediaQueryData = MediaQuery.of(context);
     return Scaffold(
         key: key,
@@ -54,7 +56,7 @@ class _HomeState extends State<Home> {
         extendBodyBehindAppBar: true,
 
         ///   background// color: const Color.fromRGBO(27, 25, 27, 1),
-        appBar: const HomeAppBar(),
+        appBar: HomeAppBar(),
         endDrawer: const Drawer(
           //  background// color: Color.fromRGBO(241, 241, 241, 1),
           width: 10000,
@@ -85,10 +87,15 @@ class _HomeState extends State<Home> {
                 duration: Durations.long4,
                 curve: Curves.easeInQuart,
                 child: ColorLine(
-                    colorSelected: widget.colorSelected, handleBrightnessChange: widget.handleBrightnessChange, handleColorSelect: widget.handleColorSelect),
+                    colorSelected: widget.colorSelected,
+                    handleBrightnessChange: widget.handleBrightnessChange,
+                    handleColorSelect: widget.handleColorSelect),
               ),
             )
           ],
         ));
   }
 }
+
+// ValueListenable<bool>
+final ValueNotifier<bool> isVisible = ValueNotifier(true);

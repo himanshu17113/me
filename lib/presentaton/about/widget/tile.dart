@@ -1,71 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
 import 'package:me/typo.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../component/typer.dart';
 
-class HorizontalLine extends StatefulWidget {
+class HorizontalLine extends StatelessWidget {
   final String title;
   final double size;
   final EdgeInsets? edgeInsets;
 
-  const HorizontalLine({super.key, required this.title, this.size = 36, this.edgeInsets});
+  static const _animationDuration = Duration(seconds: 3);
+  static const _lineHeight = 2.0;
+  static const _titlePadding = 22.0;
+  static const _maskHeight = 32.0;
+  static const _maskWidthFactor = 20.0;
+  static const _lineWidthFactor = 0.04;
+  static const _lineWidthOffset = 10.0;
 
-  @override
-  State<HorizontalLine> createState() => _HorizontalLineState();
-}
-
-class _HorizontalLineState extends State<HorizontalLine> {
-  bool visibily = false;
-  bool show = true;
-  late final int length;
-  @override
-  void initState() {
-    length = widget.title.length;
-    super.initState();
-  }
+  const HorizontalLine({
+    super.key,
+    required this.title,
+    this.size = 36,
+    this.edgeInsets,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
-      duration: Duration(seconds: 2),
+    final int titleLength = title.length;
+    screenWidth = MediaQuery.of(context).size.width;
+
+    return TweenAnimationBuilder<double>(
+      duration: _animationDuration,
+      curve: Curves.ease,
       tween: Tween<double>(begin: 0, end: 3),
-      builder: (context, value, child) {
-        final bool isleft = value > 1 && value < 2;
-        return SizedBox(
-          child: Row(
-            children: [
-              Container(
-                height: 2,
-                margin: widget.edgeInsets,
-                color: Theme.of(context).colorScheme.onPrimaryContainer,
-                width: (screenWidth * widget.size * 0.001 + 10) * ((value).clamp(0, 1)),
-              ),
-              SizedBox(
-                width: length * 22,
-                child: Stack(
-                  alignment: Alignment.centerLeft,
-                  children: [
-                    value > 2
-                        ? TypeText(
-                            " ${widget.title}",
-                            typingSpeed: 10,
-                            style: textStyle(fontFamily: "noe", fontSize: widget.size, height: 1),
-                          )
-                        : SizedBox.shrink(),
-                    Align(
-                      alignment: isleft ? Alignment.centerLeft : Alignment.centerRight,
-                      child: Container(
-                          height: 32,
-                          color: Theme.of(context).colorScheme.onSecondaryContainer,
-                          width: value < 1 ? 0 : length * 20 * (isleft ? ((value - 1)) : (3 - value))),
+      builder: (context, animationValue, child) {
+        // Animation phases:
+        // 0-1: Line grows
+        // 1-2: Mask slides left
+        // 2-3: Mask slides right, text revealed
+        final bool isMaskSlidingLeft = animationValue > 1 && animationValue < 2;
+        final double lineWidth = (screenWidth * _lineWidthFactor + _lineWidthOffset) * (animationValue.clamp(0, 1));
+        final double maskWidth = animationValue < 1 ? 0 : titleLength * _maskWidthFactor * (isMaskSlidingLeft ? (animationValue - 1) : (3 - animationValue));
+
+        return Row(
+          children: [
+            Container(
+              height: _lineHeight,
+              margin: edgeInsets,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+              width: lineWidth,
+            ),
+            SizedBox(
+              width: titleLength * _titlePadding,
+              child: Stack(
+                alignment: Alignment.centerLeft,
+                children: [
+                  if (animationValue > 2)
+                    TypeText(
+                      " $title",
+                      typingSpeed: 10,
+                      style: textStyle(fontFamily: "noe", fontSize: size, height: 1),
                     ),
-                  ],
-                ),
-              )
-            ],
-          ),
+                  Align(
+                    alignment: isMaskSlidingLeft ? Alignment.centerLeft : Alignment.centerRight,
+                    child: Container(
+                      height: _maskHeight,
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      width: maskWidth,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         );
       },
     );

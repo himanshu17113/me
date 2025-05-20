@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:me/const.dart';
-import '../widget/appbar.dart';
+ 
 import 'sub/backgound.dart';
 import 'sub/intro.dart';
 import 'sub/jouney.dart';
@@ -14,14 +14,9 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     theme = Theme.of(context);
     colorScheme = theme.colorScheme;
-    return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: const HomeAppBar(
-        
-        ),
-        body: ListView(
-          cacheExtent: 10000,
-          children: const [Intro(), Backgound(), Journey(), WhatILoveToDo(), Tools()],
-        ));
+    return ListView(
+      cacheExtent: 0,
+      children: const [Intro(), Backgound(), Journey(), WhatILoveToDo(), Tools()],
+    );
   }
 }
