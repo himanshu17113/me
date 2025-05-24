@@ -69,8 +69,8 @@ class ProjectContainer extends StatelessWidget {
       curve: Curves.easeInOut,
       width: !isVisble ? 0 : screenWidth,
       alignment: Alignment.center,
-      margin: EdgeInsets.fromLTRB(screenHeight * (context.isMobile ? .02 : .05), screenHeight * 0.05,
-          context.isMobile ? 50 : screenWidth * 0.05, screenHeight * 0.02),
+      margin: EdgeInsets.fromLTRB(
+          screenHeight * (context.isMobile ? .02 : .05), screenHeight * 0.05, context.isMobile ? 50 : screenWidth * 0.05, screenHeight * 0.02),
       padding: EdgeInsets.all(!isVisble ? 0 : screenWidth * .012),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(64),
@@ -89,7 +89,7 @@ class ProjectContainer extends StatelessWidget {
           color: Theme.of(context).colorScheme.surfaceContainerLow,
           borderRadius: BorderRadius.circular(52),
         ),
-        child: !context.isTablet
+        child: !context.isMobile
             ? Row(children: widgets)
             : Column(
                 children: widgets,

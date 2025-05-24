@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:me/const.dart';
+import 'package:me/presentaton/about/about.dart';
+import 'package:me/presentaton/contact/contact.dart';
 
 import 'package:me/presentaton/home/pages/home.dart';
 import 'package:me/presentaton/work/work.dart';
@@ -107,16 +109,21 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                       )),
                                   label: "Work",
                                 ),
-                                // HoverButton(
-                                //   onPressed: () {},
-                                //   label: "Experience",
-                                // ),
+
                                 HoverButton(
-                                  onPressed: () => Navigator.pushNamed(context, '/about'),
+                                  onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => About(),
+                                      )),
                                   label: "About",
                                 ),
                                 HoverButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Contact(),
+                                      )),
                                   label: "Contact",
                                 ),
                                 // TextButton(onPressed: () {}, child: const Text("About", style: headerunder)),

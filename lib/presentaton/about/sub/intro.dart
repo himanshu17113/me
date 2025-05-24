@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:me/const.dart';
 import 'package:me/presentaton/component/typer.dart';
 import 'package:me/typo.dart';
-import 'package:me/util/extensions/extensions.dart';
-
 import '../../component/line.dart';
 
 class Intro extends StatelessWidget {
@@ -41,7 +39,7 @@ class Intro extends StatelessWidget {
             children: [
               Spacer(),
               SizedBox(
-                width: screenWidth * (!context.isDesktop ? .8 : .45),
+                width: screenWidth * ( .45),
                 child: TypeText(
                     "I specialize in mobile technologies and am passionate about developing scalable, high-quality applications with exceptional user experiences.",
                     textAlign: TextAlign.center,

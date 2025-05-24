@@ -1,7 +1,6 @@
- 
 import 'package:flutter/material.dart';
-import 'package:layout/layout.dart';
 import 'package:me/presentaton/widget/about_project.dart';
+import 'package:me/typo.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import '../../../const.dart';
 import '../../widget/project_container.dart';
@@ -45,13 +44,11 @@ class Projects extends StatelessWidget {
                           child: Text(
                             "My Projects",
                             maxLines: 1,
-                            style: TextStyle(
+                            style: textStyle(
                               color: colorScheme.onPrimaryContainer,
-                              fontSize: context.layout.value(xs: 26, sm: 34, md: 48, lg: 52, xl: 58),
+                              fontSize: 52,
                               fontFamily: "noe",
-                              fontWeight: FontWeight.bold,
-                              fontVariations: <FontVariation>[FontVariation('wght', 1200.0)],
-                              decoration: TextDecoration.none,
+                              wght: 1200.0,
                             ),
                           ),
                         ),

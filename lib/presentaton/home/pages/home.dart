@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     theme = Theme.of(context);
     colorScheme = theme.colorScheme;
-    final ScrollController scrollController = ScrollController();
+
     // mediaQueryData = MediaQuery.of(context);
     return Scaffold(
         key: key,
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
         extendBodyBehindAppBar: true,
 
         ///   background// color: const Color.fromRGBO(27, 25, 27, 1),
-        appBar: HomeAppBar(),
+        appBar: const HomeAppBar(),
         endDrawer: const Drawer(
           //  background// color: Color.fromRGBO(241, 241, 241, 1),
           width: 10000,

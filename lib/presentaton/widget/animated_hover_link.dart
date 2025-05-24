@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:me/typo.dart';
-import 'package:me/util/extensions/layout_adapter_ex.dart';
 
 class HoveLink extends StatelessWidget {
-  HoveLink({super.key, required this.label, required this.onPressed, });
+  HoveLink({
+    super.key,
+    required this.label,
+    required this.onPressed,
+  });
 
   final String label;
   final VoidCallback onPressed;
@@ -15,7 +18,6 @@ class HoveLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = context.adaptive(titleBig, headlineMedium, sm: titleLarge, md: headlineSmall, xl: headlineLarge);
     return ValueListenableBuilder(
       builder: (_, hover, __) {
         return MouseRegion(
@@ -25,10 +27,13 @@ class HoveLink extends StatelessWidget {
           child: GestureDetector(
               onTap: onPressed,
               child: Text(label,
-                  style: labelStyle.copyWith(
+                  style: textStyle(
+                    fontSize: 24.0,
+                    letterSpacing: 0.0,
+                    height: 1.33,
                     decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.w100,
-                    fontVariations: <FontVariation>[FontVariation('wght', 400.0)],
+               
+                    wght: 400.0,
                     fontFamily: "SourGummy",
                     decorationThickness: hover ? 2.4 : 2,
                     decorationColor: hover ? Theme.of(context).highlightColor : Theme.of(context).splashColor,

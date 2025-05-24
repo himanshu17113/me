@@ -91,6 +91,7 @@ class Skills extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: screenWidth * 0.02, top: 6, bottom: 6),
       child: Column(
+        spacing: 8,
         children: [
           HorizontalLine(
             title: header,

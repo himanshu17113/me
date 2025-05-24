@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:layout/layout.dart';
+ 
 import 'package:me/constants.dart';
+import 'package:me/presentaton/contact/contact.dart';
 import 'const.dart';
-import 'presentaton/home/pages/home.dart';
 
 void main() {
   runApp(const App());
@@ -44,13 +44,12 @@ class _AppState extends State<App> {
     mediaQueryData = MediaQuery.of(context);
     screenHeight = mediaQueryData.size.height;
     screenWidth = mediaQueryData.size.width;
-    return Layout(
-      child: MaterialApp(
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Portfolio',
         //  //   initialRoute: Routes.home,
         //     routes: Routes.routes,
-
+    
         scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         themeMode: themeMode,
         theme: ThemeData(
@@ -65,13 +64,13 @@ class _AppState extends State<App> {
         ),
         highContrastDarkTheme: ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
         highContrastTheme: ThemeData.from(colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
-        home: Home(
-          useLightMode: useLightMode,
-          colorSelected: colorSelected,
-          handleBrightnessChange: handleBrightnessChange,
-          handleColorSelect: handleColorSelect,
-        ),
-      ),
-    );
+        home: Contact()
+        //  Home(
+        //   useLightMode: useLightMode,
+        //   colorSelected: colorSelected,
+        //   handleBrightnessChange: handleBrightnessChange,
+        //   handleColorSelect: handleColorSelect,
+        // ),
+        );
   }
 }
