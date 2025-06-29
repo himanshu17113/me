@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
- 
+
 import 'package:me/constants.dart';
 import 'package:me/presentaton/contact/contact.dart';
 import 'const.dart';
+import 'presentaton/home/pages/home.dart';
 
 void main() {
   runApp(const App());
@@ -45,32 +46,32 @@ class _AppState extends State<App> {
     screenHeight = mediaQueryData.size.height;
     screenWidth = mediaQueryData.size.width;
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Portfolio',
-        //  //   initialRoute: Routes.home,
-        //     routes: Routes.routes,
-    
-        scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        themeMode: themeMode,
-        theme: ThemeData(
-          colorSchemeSeed: colorSelected.color,
-          useMaterial3: true,
-          brightness: Brightness.light,
-        ),
-        darkTheme: ThemeData(
-          colorSchemeSeed: colorSelected.color,
-          useMaterial3: true,
-          brightness: Brightness.dark,
-        ),
-        highContrastDarkTheme: ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
-        highContrastTheme: ThemeData.from(colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
-        home: Contact()
-        //  Home(
-        //   useLightMode: useLightMode,
-        //   colorSelected: colorSelected,
-        //   handleBrightnessChange: handleBrightnessChange,
-        //   handleColorSelect: handleColorSelect,
-        // ),
-        );
+      debugShowCheckedModeBanner: false,
+      title: 'Portfolio',
+      //  //   initialRoute: Routes.home,
+      //     routes: Routes.routes,
+
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      themeMode: themeMode,
+      theme: ThemeData(
+        colorSchemeSeed: colorSelected.color,
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: colorSelected.color,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+      ),
+      highContrastDarkTheme: ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
+      highContrastTheme: ThemeData.from(colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
+      home: //Contact()
+          Home(
+        useLightMode: useLightMode,
+        colorSelected: colorSelected,
+        handleBrightnessChange: handleBrightnessChange,
+        handleColorSelect: handleColorSelect,
+      ),
+    );
   }
 }

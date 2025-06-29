@@ -45,7 +45,7 @@ class _ContactState extends State<Contact> with TickerProviderStateMixin {
     });
     _animationController = AnimationController(
       vsync: this,
-      duration: Durations.extralong1,
+      duration: Durations.long2,
     );
     animation = CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
     super.initState();
@@ -152,33 +152,46 @@ class _ContactState extends State<Contact> with TickerProviderStateMixin {
                       animation: animation,
                       builder: (BuildContext context, Widget? child) {
                         return SizedBox(
-                          width: 216,
+                          width: 200,
                           height: 42,
                           child: Stack(alignment: Alignment.centerLeft, children: [
                             Container(
                               width: 180 * animation.value + 42,
                               height: 42,
+                              padding: EdgeInsets.symmetric(vertical: 10),
                               decoration: ShapeDecoration(color: Colors.black, shape: StadiumBorder()),
-                              child: SizedBox.square(
-                                dimension: 10,
-                                child: VectorGraphic(
-                                  fit: BoxFit.fitWidth,
-                                  loader: AssetBytesLoader(send),
-                                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                                ),
-                              ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 82.5),
-                              child: Text(
-                                "Send Message",
-                                style: textStyle(
-                                  fontSize: 16,
-                                  wght: 400,
-                                  fontFamily: "SourGummy",
-                                  color: isHovered ? Theme.of(context).highlightColor : Theme.of(context).splashColor,
+                            Row(
+                              children: [
+                                SizedBox(width: 10 * animation.value),
+                                SizedBox(
+                                  height: 14,
+                                  width: 42,
+                                  child: VectorGraphic(
+                                    fit: BoxFit.fitHeight,
+                                    loader: AssetBytesLoader(send),
+                                    alignment: Alignment.center,
+                                    colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                                  ),
                                 ),
-                              ),
+                                Spacer(),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 42),
+                                  child: Text(
+                                    "Send Message",
+                                    style: textStyle(
+                                      fontSize: 16,
+                                      wght: 400,
+                                      fontFamily: "SourGummy",
+                                      color: Color.lerp(
+                                        theme.colorScheme.inverseSurface,
+                                        theme.colorScheme.onInverseSurface,
+                                        animation.value,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ]),
                         );
