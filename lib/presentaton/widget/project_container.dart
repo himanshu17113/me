@@ -47,10 +47,9 @@ class ProjectContainer extends StatelessWidget {
       flex: 3,
       child: Container(
         margin: EdgeInsets.all(screenWidth * .02),
-        decoration: BoxDecoration(
-          // color: Theme.of(context).colorScheme.surfaceContainerLow,
-          borderRadius: BorderRadius.circular(36),
-        ),
+        decoration: ShapeDecoration(
+            // color: Theme.of(context).colorScheme.surfaceContainerLow,
+            shape: RoundedSuperellipseBorder(borderRadius: BorderRadiusGeometry.circular(56))),
         child: Text("jhgfskdlghghsgdhjgjhghjdfghjghjfgshdghjsfghfsghdsghjdgfghgdgfhgsdfghfgfghjdghjdghgdfjh"),
       ),
     );
@@ -72,23 +71,19 @@ class ProjectContainer extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(
           screenHeight * (context.isMobile ? .02 : .05), screenHeight * 0.05, context.isMobile ? 50 : screenWidth * 0.05, screenHeight * 0.02),
       padding: EdgeInsets.all(!isVisble ? 0 : screenWidth * .012),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(64),
+      decoration: ShapeDecoration(
+        shape: RoundedSuperellipseBorder(borderRadius: BorderRadiusGeometry.circular(!isVisble ? 0 : 56)),
         color: Theme.of(context).colorScheme.surfaceContainerLow,
       ),
       child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).shadowColor.withAlpha(40),
-              spreadRadius: 2,
-              blurRadius: 18,
-              offset: const Offset(5, 5),
-            ),
-          ],
-          color: Theme.of(context).colorScheme.surfaceContainerLow,
-          borderRadius: BorderRadius.circular(52),
-        ),
+        decoration: ShapeDecoration(shadows: [
+          BoxShadow(
+            color: Theme.of(context).shadowColor.withAlpha(40),
+            spreadRadius: 2,
+            blurRadius: 18,
+            offset: const Offset(5, 5),
+          ),
+        ], color: Theme.of(context).colorScheme.surfaceContainerLow, shape: RoundedSuperellipseBorder(borderRadius: BorderRadiusGeometry.circular(56))),
         child: !context.isMobile
             ? Row(children: widgets)
             : Column(

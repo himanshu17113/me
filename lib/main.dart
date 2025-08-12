@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:me/constants.dart';
-import 'package:me/presentaton/contact/contact.dart';
 import 'const.dart';
 import 'presentaton/home/pages/home.dart';
 

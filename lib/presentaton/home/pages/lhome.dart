@@ -41,10 +41,7 @@ class Lhome extends StatelessWidget {
                   Container(
                     width: 100,
                     height: 100,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondaryContainer.withAlpha(150),
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-                    ),
+                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.secondaryContainer.withAlpha(150), shape: BoxShape.circle),
                   )
                 ],
               ),
