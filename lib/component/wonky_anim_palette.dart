@@ -21,9 +21,7 @@ import 'wonky_char.dart';
 // an enumeration of variable font axes at https://fonts.google.com/variablefonts
 
 class WonkyAnimPalette {
-  const WonkyAnimPalette({
-    Key? key,
-  });
+  const WonkyAnimPalette();
   static const Curve defaultCurve = Curves.easeInOut;
  
   // basic (settings unrelated to variable font)
@@ -33,8 +31,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'basic',
       property: 'scale',
       fromTo: RangeDbl(from: from, to: to),
@@ -42,7 +39,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting offsetX({
     double from = -50,
@@ -50,8 +46,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'basic',
       property: 'offsetX',
       fromTo: RangeDbl(from: from, to: to),
@@ -59,7 +54,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting offsetY({
     double from = -50,
@@ -67,8 +61,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'basic',
       property: 'offsetY',
       fromTo: RangeDbl(from: from, to: to),
@@ -76,7 +69,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting rotation({
     double from = -pi,
@@ -84,8 +76,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'basic',
       property: 'rotation',
       fromTo: RangeDbl(from: from, to: to),
@@ -93,7 +84,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting color({
     Color from = Colors.blue,
@@ -101,8 +91,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'basic',
       property: 'color',
       fromTo: RangeColor(from: from, to: to),
@@ -110,7 +99,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   // font variants (variable font settings)
   static WonkyAnimSetting opticalSize({
@@ -119,8 +107,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'opsz',
       fromTo: RangeDbl(from: from, to: to),
@@ -128,7 +115,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting weight({
     double from = 100,
@@ -136,8 +122,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'wght',
       fromTo: RangeDbl(from: from, to: to),
@@ -145,7 +130,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting grade({
     double from = -300,
@@ -153,8 +137,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'GRAD',
       fromTo: RangeDbl(from: from, to: to),
@@ -162,7 +145,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting slant({
     double from = -10,
@@ -170,8 +152,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'slnt',
       fromTo: RangeDbl(from: from, to: to),
@@ -179,7 +160,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting width({
     double from = 50,
@@ -187,8 +167,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'wdth',
       fromTo: RangeDbl(from: from, to: to),
@@ -196,7 +175,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting thickStroke({
     double from = 18,
@@ -204,8 +182,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'XOPQ',
       fromTo: RangeDbl(from: from, to: to),
@@ -213,7 +190,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting thinStroke({
     double from = 15,
@@ -221,8 +197,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'YOPQ',
       fromTo: RangeDbl(from: from, to: to),
@@ -230,7 +205,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting counterWd({
     double from = 324,
@@ -238,8 +212,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'XTRA',
       fromTo: RangeDbl(from: from, to: to),
@@ -247,7 +220,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting upperCaseHt({
     double from = 500,
@@ -255,8 +227,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'YTUC',
       fromTo: RangeDbl(from: from, to: to),
@@ -264,7 +235,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting lowerCaseHt({
     double from = 420,
@@ -272,8 +242,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'YTLC',
       fromTo: RangeDbl(from: from, to: to),
@@ -281,7 +250,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting ascenderHt({
     double from = 500,
@@ -289,8 +257,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'YTAS',
       fromTo: RangeDbl(from: from, to: to),
@@ -298,7 +265,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting descenderDepth({
     double from = -500,
@@ -306,8 +272,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'YTDE',
       fromTo: RangeDbl(from: from, to: to),
@@ -315,7 +280,6 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 
   static WonkyAnimSetting figureHt({
     double from = 425,
@@ -323,8 +287,7 @@ class WonkyAnimPalette {
     double startAt = 0,
     double endAt = 1,
     Curve curve = defaultCurve,
-  }) {
-    return WonkyAnimSetting(
+  }) => WonkyAnimSetting(
       type: 'fv',
       property: 'YTFI',
       fromTo: RangeDbl(from: from, to: to),
@@ -332,5 +295,4 @@ class WonkyAnimPalette {
       endAt: endAt,
       curve: curve,
     );
-  }
 }

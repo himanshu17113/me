@@ -173,7 +173,7 @@ class TypeTextState extends State<TypeText> {
     _currentIdx = 0;
 
     if (_textCharacters.isEmpty) {
-      widget.onType?.call(1.0);
+      widget.onType?.call(1);
 
       return;
     }
@@ -186,7 +186,7 @@ class TypeTextState extends State<TypeText> {
 
   void _typeNextCharacter(Timer timer) {
     if (_currentIdx < _textCharacters.length) {
-      final nextChar = _textCharacters[_currentIdx];
+      final String nextChar = _textCharacters[_currentIdx];
       setState(() {
         _typedText += nextChar;
         _currentIdx++;
@@ -194,7 +194,7 @@ class TypeTextState extends State<TypeText> {
       widget.onType?.call(_currentIdx / _textCharacters.length);
     } else {
       _stopTimer();
-      widget.onType?.call(1.0);
+      widget.onType?.call(1);
     }
   }
 
@@ -235,7 +235,7 @@ class TypeTextState extends State<TypeText> {
 
   @override
   Widget build(BuildContext context) {
-    String displayText = _typedText;
+    final String displayText = _typedText;
 
     return Text(
       displayText,

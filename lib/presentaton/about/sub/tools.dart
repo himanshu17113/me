@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:me/const.dart';
-import 'package:me/typo.dart';
-import 'package:me/util/extensions/extensions.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
+import '../../../const.dart';
+import '../../../typo.dart';
+import '../../../util/extensions/extensions.dart';
 import '../widget/tile.dart';
 
 class Tools extends StatelessWidget {
   const Tools({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       //  height: screenHeight,
       width: screenWidth,
       child: Padding(
@@ -32,7 +31,7 @@ class Tools extends StatelessWidget {
                 children: [
                   Text(
                     "I use a bunch of tools and technologies to make design and implementation process easier.",
-                    style: textStyle(fontSize: 26, wght: 400, fontFamily: "Rubik", wordSpacing: 1.27, letterSpacing: 0.1),
+                    style: textStyle(fontSize: 26, fontFamily: "Rubik", wordSpacing: 1.27, letterSpacing: 0.1),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 6),
@@ -47,27 +46,27 @@ class Tools extends StatelessWidget {
                 ],
               ),
             ),
-            Skills(
+            const Skills(
               header: "Language",
               childs: language,
             ),
-            Skills(
+            const Skills(
               header: "Framework",
               childs: frameworkPlatform,
             ),
-            Skills(
+            const Skills(
               header: "Library",
               childs: library,
             ),
-            Skills(
+            const Skills(
               header: "Editors",
               childs: editors,
             ),
-            Skills(
+            const Skills(
               header: "Services",
               childs: services,
             ),
-            Skills(
+            const Skills(
               header: "Version Control",
               childs: tools,
             ),
@@ -75,20 +74,16 @@ class Tools extends StatelessWidget {
         ),
       ),
     );
-  }
 }
 
 class Skills extends StatelessWidget {
   const Skills({
-    super.key,
-    required this.header,
-    required this.childs,
+    required this.header, required this.childs, super.key,
   });
   final String header;
   final List<String> childs;
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Widget build(BuildContext context) => Padding(
       padding: EdgeInsets.only(left: screenWidth * 0.02, top: 6, bottom: 6),
       child: Column(
         spacing: 8,
@@ -122,5 +117,4 @@ class Skills extends StatelessWidget {
         ],
       ),
     );
-  }
 }

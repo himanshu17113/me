@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:me/const.dart';
-import 'package:me/typo.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
+import '../../const.dart';
+import '../../typo.dart';
 import '../home/pages/home.dart';
 import '../widget/appbar.dart';
 import 'animated_text_field.dart';
@@ -69,8 +69,7 @@ class _ContactState extends State<Contact> with TickerProviderStateMixin {
 
   late final CurvedAnimation animation;
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: const HomeAppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: mediaQueryData.size.width * .06, vertical: mediaQueryData.size.width * .04),
@@ -150,38 +149,35 @@ class _ContactState extends State<Contact> with TickerProviderStateMixin {
                   onExit: (PointerExitEvent event) => _animationController.reverse(),
                   child: AnimatedBuilder(
                       animation: animation,
-                      builder: (BuildContext context, Widget? child) {
-                        return SizedBox(
+                      builder: (BuildContext context, Widget? child) => SizedBox(
                           width: 200,
                           height: 42,
                           child: Stack(alignment: Alignment.centerLeft, children: [
                             Container(
                               width: 180 * animation.value + 42,
                               height: 42,
-                              padding: EdgeInsets.symmetric(vertical: 10),
-                              decoration: ShapeDecoration(color: Colors.black, shape: StadiumBorder()),
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              decoration: const ShapeDecoration(color: Colors.black, shape: StadiumBorder()),
                             ),
                             Row(
                               children: [
                                 SizedBox(width: 10 * animation.value),
-                                SizedBox(
+                                const SizedBox(
                                   height: 14,
                                   width: 42,
                                   child: VectorGraphic(
                                     fit: BoxFit.fitHeight,
                                     loader: AssetBytesLoader(send),
-                                    alignment: Alignment.center,
                                     colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 42),
                                   child: Text(
                                     "Send Message",
                                     style: textStyle(
                                       fontSize: 16,
-                                      wght: 400,
                                       fontFamily: "SourGummy",
                                       color: Color.lerp(
                                         theme.colorScheme.inverseSurface,
@@ -194,8 +190,7 @@ class _ContactState extends State<Contact> with TickerProviderStateMixin {
                               ],
                             ),
                           ]),
-                        );
-                      }),
+                        )),
                 ),
               ),
             )
@@ -203,5 +198,4 @@ class _ContactState extends State<Contact> with TickerProviderStateMixin {
         ),
       ),
     );
-  }
 }

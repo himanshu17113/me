@@ -1,23 +1,30 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:me/const.dart';
-import 'package:me/constants.dart';
+
+import '../../const.dart';
+import '../../constants.dart';
 
 class ColorLine extends StatelessWidget {
+  const ColorLine({
+    required this.colorSelected,
+    required this.handleBrightnessChange,
+    required this.handleColorSelect,
+    super.key,
+  });
   final ColorSeed colorSelected;
   final void Function(bool useLightMode) handleBrightnessChange;
   final void Function(int value) handleColorSelect;
-  const ColorLine({super.key, required this.colorSelected, required this.handleBrightnessChange, required this.handleColorSelect});
 
   @override
   Widget build(BuildContext context) {
-    bool isLight = Theme.of(context).brightness == Brightness.light;
+    final bool isLight = Theme.of(context).brightness == Brightness.light;
     return SizedBox(
       // width: mediaQueryData.size.height * 0.066,
       height: mediaQueryData.size.height - 80,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max,
         children: [
           const Expanded(child: VerticalDivider()),
           SizedBox(
@@ -25,7 +32,7 @@ class ColorLine extends StatelessWidget {
             child: Stack(
               alignment: AlignmentDirectional.bottomCenter,
               children: [
-                VerticalDivider(
+                const VerticalDivider(
                   color: Colors.deepOrangeAccent,
                   endIndent: 30,
                 ),
@@ -34,13 +41,13 @@ class ColorLine extends StatelessWidget {
                   maintainSize: true,
                   maintainState: true,
                   maintainAnimation: true,
-                  child: LightBulb(),
+                  child: const LightBulb(),
                 ),
                 Positioned(bottom: isLight ? 10 : 0, child: IconButton(onPressed: () => handleBrightnessChange(!isLight), icon: const Icon(Icons.light))),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
 //          Icon(CupertinoIcons.lightbulb_fill)
@@ -65,30 +72,25 @@ class _ColorSeedButton extends StatelessWidget {
   final ColorSeed colorSelected;
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(
-        ColorSeed.values.length,
-        (i) => SizedBox.square(
-          dimension: mediaQueryData.size.height * 0.05,
-          child: IconButton(
-            iconSize: mediaQueryData.size.height * 0.0313,
-            visualDensity: VisualDensity.compact,
-            style: ButtonStyle(),
-            padding: EdgeInsets.zero,
-            icon: const Icon(Icons.radio_button_unchecked),
-            color: ColorSeed.values[i].color,
-            isSelected: colorSelected.color == ColorSeed.values[i].color,
-            selectedIcon: const Icon(Icons.circle),
-            onPressed: () {
-              handleColorSelect(i);
-            },
-            tooltip: ColorSeed.values[i].label,
+  Widget build(BuildContext context) => Column(
+        children: List.generate(
+          ColorSeed.values.length,
+          (i) => SizedBox.square(
+            dimension: mediaQueryData.size.height * 0.05,
+            child: IconButton(
+              iconSize: mediaQueryData.size.height * 0.0313,
+              visualDensity: VisualDensity.compact,
+              padding: EdgeInsets.zero,
+              icon: const Icon(Icons.radio_button_unchecked),
+              color: ColorSeed.values[i].color,
+              isSelected: colorSelected.color == ColorSeed.values[i].color,
+              selectedIcon: const Icon(Icons.circle),
+              onPressed: () => handleColorSelect(i),
+              tooltip: ColorSeed.values[i].label,
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
 
 class LightBulb extends StatelessWidget {
@@ -100,7 +102,7 @@ class LightBulb extends StatelessWidget {
     return ClipPath(
       clipper: ConeClipper(),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0, tileMode: TileMode.repeated),
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3, tileMode: TileMode.repeated),
         child: Container(
           width: 50,
           height: 40,
@@ -124,12 +126,12 @@ class LightBulb extends StatelessWidget {
               // ],
               //   stops: [0.1, 0.5, 0.7, 1.0],
               ,
-              stops: [0.1, 0.2, 0.4, 0.6, 0.7, 0.8, 1.0],
+              stops: const [0.1, 0.2, 0.4, 0.6, 0.7, 0.8, 1.0],
               focal: Alignment.topCenter,
             ),
           ),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.white30,
             ),
@@ -148,29 +150,28 @@ class ConeClipper extends CustomClipper<Path> {
     final double height = size.height;
 
     // Define the rounded edges
-    final double roundedEdge = 2.0;
+    const double roundedEdge = 2;
 
     /// Move to the starting point (top center)
-    path.moveTo(width / 2, 0);
+    path
+      ..moveTo(width / 2, 0)
 
-    // Draw the left side with a rounded edge
-    path.lineTo(roundedEdge, height - roundedEdge);
-    path.quadraticBezierTo(0, height, roundedEdge, height);
+      // Draw the left side with a rounded edge
+      ..lineTo(roundedEdge, height - roundedEdge)
+      ..quadraticBezierTo(0, height, roundedEdge, height)
 
-    // Draw the bottom side with a rounded edge
-    path.lineTo(width - roundedEdge, height);
-    path.quadraticBezierTo(width, height, width - roundedEdge, height - roundedEdge);
+      // Draw the bottom side with a rounded edge
+      ..lineTo(width - roundedEdge, height)
+      ..quadraticBezierTo(width, height, width - roundedEdge, height - roundedEdge)
 
-    // Draw the right side
-    path.lineTo(width / 2, 0);
+      // Draw the right side
+      ..lineTo(width / 2, 0)
 
-    // Close the path
-    path.close();
+      // Close the path
+      ..close();
     return path;
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
-  }
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

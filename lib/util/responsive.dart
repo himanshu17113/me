@@ -1,6 +1,6 @@
 import '../const.dart';
 
-T responsive<T>({required T? xs, T? sm, T? md, required T lg, T? xl}) {
+T responsive<T>({required T? xs, required T lg, T? sm, T? md, T? xl}) {
   switch (mediaQueryData.size.width) {
     case < 550:
       return xs ?? sm ?? md ?? lg;

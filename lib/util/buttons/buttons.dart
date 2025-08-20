@@ -4,9 +4,9 @@ import '../constant_sizes.dart';
 
 class HoverButton extends StatefulWidget {
   const HoverButton({
-    super.key,
     required this.label,
     required this.onPressed,
+    super.key,
     this.icon,
     this.isRounded = true,
   });
@@ -23,10 +23,10 @@ class _HoverButtonState extends State<HoverButton> {
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = textStyle(
-      fontSize: 18.0,
+    final TextStyle labelStyle = textStyle(
+      fontSize: 18,
       //  fontWeight: FontWeight.w400,
-      letterSpacing: 0.0,
+      letterSpacing: 0,
       height: 1.27,
     );
     return Stack(
@@ -37,34 +37,34 @@ class _HoverButtonState extends State<HoverButton> {
             top: _isHovered ? s0 : s8,
             curve: Curves.easeIn,
             duration: Durations.medium4,
-            child: Container(
-              foregroundDecoration: ShapeDecoration(
+            child: OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide.none,
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                  backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+                  foregroundColor: Theme.of(context).colorScheme.secondaryContainer,
                   shape: widget.isRounded ? const StadiumBorder() : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
-                  color: Theme.of(context).colorScheme.secondaryContainer),
-              child: OutlinedButton.icon(
-                  style: OutlinedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
-                  onPressed: widget.onPressed,
-                  icon: widget.icon != null
-                      ? AnimatedPadding(
-                          padding: EdgeInsets.symmetric(horizontal: (_isHovered ? 4 : 0)),
-                          duration: Durations.long1,
-                          child: Icon(
-                            widget.icon,
-                          ))
-                      : null,
-                  label: Text(
-                    widget.label,
-                    style: labelStyle,
-                  )),
-            )),
+                ),
+                onPressed: widget.onPressed,
+                icon: widget.icon != null
+                    ? AnimatedPadding(
+                        padding: EdgeInsets.symmetric(horizontal: (_isHovered ? 4 : 0)),
+                        duration: Durations.long1,
+                        child: Icon(
+                          widget.icon,
+                        ))
+                    : null,
+                label: Text(
+                  widget.label,
+                  style: labelStyle,
+                ))),
         Padding(
           padding: const EdgeInsets.only(bottom: 8, left: 8),
           child: OutlinedButton.icon(
-              onHover: (value) => setState(() {
-                    _isHovered = value;
-                  }),
+              onHover: (value) => setState(() => _isHovered = value),
               iconAlignment: IconAlignment.end,
               style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Theme.of(context).colorScheme.outline, width: 1.5),
                   shape: widget.isRounded ? const StadiumBorder() : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(.12))),
                   padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
               onPressed: widget.onPressed,

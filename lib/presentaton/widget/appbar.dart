@@ -1,22 +1,20 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-import 'package:me/const.dart';
-import 'package:me/presentaton/about/about.dart';
-import 'package:me/presentaton/contact/contact.dart';
-
-import 'package:me/presentaton/home/pages/home.dart';
-import 'package:me/presentaton/work/work.dart';
-import 'package:me/util/buttons/buttons.dart';
+import '../../const.dart';
+import '../../util/buttons/buttons.dart';
+import '../about/about.dart';
+import '../contact/contact.dart';
+import '../home/pages/home.dart';
+import '../work/work.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  final Size preferredSize;
   const HomeAppBar({
     super.key,
-
-    //   required this.isVisible,
-  }) : preferredSize = const Size.fromHeight(70.0);
+  }) : preferredSize = const Size.fromHeight(70);
+  @override
+  final Size preferredSize;
 
   static const headeritalic = TextStyle(
       // color: Colors.white,
@@ -32,7 +30,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       fontSize: 16,
       letterSpacing: 0.1,
       fontFamily: "Rubik",
-      fontVariations: <FontVariation>[FontVariation('wght', 600.0)]);
+      fontVariations: <FontVariation>[FontVariation('wght', 600)]);
   static const headerunder = TextStyle(
     // color: Colors.white,
     decoration: TextDecoration.underline,
@@ -50,7 +48,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         valueListenable: isVisible,
         builder: (BuildContext context, dynamic value, Widget? child) => ClipRect(
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             child: AnimatedContainer(
                 color: Theme.of(context).scaffoldBackgroundColor.withAlpha(value ? 75 : 0),
                 // color: value ? const Color.fromRGBO(27, 25, 27, 0.4) : const Color.fromRGBO(27, 25, 27, 0.1),
@@ -60,12 +58,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 //    padding: EdgeInsets.symmetric(horizontal: mediaQueryData.size.width * .1),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Spacer(
                       flex: 2,
                     ),
-                    Expanded(
+                    const Expanded(
                       flex: 15,
                       child: FittedBox(
                         alignment: Alignment.centerLeft,
@@ -73,9 +70,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                         child: Row(
                           children: [
                             CircleAvatar(
-                              backgroundImage: const AssetImage('assets/images/profile.png'),
+                              backgroundImage: AssetImage('assets/images/profile.png'),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: 10,
                             ),
                             Text(
@@ -105,7 +102,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                   onPressed: () => Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Work(),
+                                        builder: (context) => const Work(),
                                       )),
                                   label: "Work",
                                 ),
@@ -114,7 +111,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                   onPressed: () => Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => About(),
+                                        builder: (context) => const About(),
                                       )),
                                   label: "About",
                                 ),
@@ -122,7 +119,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                                   onPressed: () => Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Contact(),
+                                        builder: (context) => const Contact(),
                                       )),
                                   label: "Contact",
                                 ),

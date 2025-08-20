@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:me/util/extensions/extensions.dart';
 
 import '../../const.dart';
 import '../../main.dart';
+import '../../util/extensions/extensions.dart';
 
 class ProjectContainer extends StatelessWidget {
+  const ProjectContainer(
+      {required this.lightColor, required this.darkColor, required this.projectImage, required this.projectDetails, super.key,
+      this.isVisble = false,
+      this.isReversed = false});
   final bool isVisble;
   final Color lightColor;
   final Color darkColor;
   final bool isReversed;
   final String projectImage;
   final String projectDetails;
-  const ProjectContainer(
-      {super.key,
-      this.isVisble = false,
-      required this.lightColor,
-      required this.darkColor,
-      this.isReversed = false,
-      required this.projectImage,
-      required this.projectDetails});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +32,7 @@ class ProjectContainer extends StatelessWidget {
                     lightColor.withAlpha(235),
                     lightColor, // Outer color
                   ],
-                  stops: [0.2, 0.4, 0.6, 0.8, 1.0], // Control the gradient spread
+                  stops: const [0.2, 0.4, 0.6, 0.8, 1.0], // Control the gradient spread
                 ),
           color: darkColor,
           borderRadius: BorderRadius.circular(52),
@@ -50,7 +46,7 @@ class ProjectContainer extends StatelessWidget {
         decoration: ShapeDecoration(
             // color: Theme.of(context).colorScheme.surfaceContainerLow,
             shape: RoundedSuperellipseBorder(borderRadius: BorderRadiusGeometry.circular(56))),
-        child: Text("jhgfskdlghghsgdhjgjhghjdfghjghjfgshdghjsfghfsghdsghjdgfghgdgfhgsdfghfgfghjdghjdghgdfjh"),
+        child: const Text("jhgfskdlghghsgdhjgjhghjdfghjghjfgshdghjsfghfsghdsghjdgfghgdgfhgsdfghfgfghjdghjdghgdfjh"),
       ),
     );
     final widgets = isReversed
@@ -75,7 +71,7 @@ class ProjectContainer extends StatelessWidget {
         shape: RoundedSuperellipseBorder(borderRadius: BorderRadiusGeometry.circular(!isVisble ? 0 : 56)),
         color: Theme.of(context).colorScheme.surfaceContainerLow,
       ),
-      child: Container(
+      child: DecoratedBox(
         decoration: ShapeDecoration(shadows: [
           BoxShadow(
             color: Theme.of(context).shadowColor.withAlpha(40),

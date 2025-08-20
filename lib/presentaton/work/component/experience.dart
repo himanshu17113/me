@@ -4,26 +4,21 @@ import '../../../typo.dart';
 import '../../about/widget/tile.dart';
 
 class ExperienceSection extends StatelessWidget {
+
+  const ExperienceSection({
+    required this.time, required this.delegation, required this.company, required this.location, required this.description, super.key,
+  });
   final String time;
   final String delegation;
   final String company;
   final String location;
   final String description;
 
-  const ExperienceSection({
-    super.key,
-    required this.time,
-    required this.delegation,
-    required this.company,
-    required this.location,
-    required this.description,
-  });
-
   @override
   Widget build(BuildContext context) {
-    final mediaQueryData = MediaQuery.of(context);
-    final screenWidth = mediaQueryData.size.width;
-    final theme = Theme.of(context);
+    final MediaQueryData mediaQueryData = MediaQuery.of(context);
+    final double screenWidth = mediaQueryData.size.width;
+    final ThemeData theme = Theme.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32),

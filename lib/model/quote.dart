@@ -7,8 +7,6 @@
  
 
 class Quote {
-    String quote;
-    String author;
 
     Quote({
         required this.quote,
@@ -19,6 +17,8 @@ class Quote {
         quote: json["quote"],
         author: json["author"],
     );
+    String quote;
+    String author;
 
     Map<String, dynamic> toJson() => {
         "quote": quote,

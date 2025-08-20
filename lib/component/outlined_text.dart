@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 
 class OutlinedText extends StatelessWidget {
   const OutlinedText({
-    super.key,
-    required this.text,
-    required this.fontSize,
-    required this.strokeColor,
-    required this.textColor,
+    required this.text, required this.fontSize, required this.strokeColor, required this.textColor, super.key,
     this.strokeWidth = 4,
     this.letterSpacing = 1,
     this.fontWeight = FontWeight.normal,
@@ -19,8 +15,7 @@ class OutlinedText extends StatelessWidget {
   final double strokeWidth;
   final FontWeight fontWeight;
   @override
-  Widget build(BuildContext context) {
-    return Stack(children: [
+  Widget build(BuildContext context) => Stack(children: [
       // Stroked text as border.
       Text(
         text,
@@ -44,5 +39,4 @@ class OutlinedText extends StatelessWidget {
         ),
       ),
     ]);
-  }
 }

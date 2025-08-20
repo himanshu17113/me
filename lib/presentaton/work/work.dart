@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:me/const.dart';
 import 'package:vector_graphics/vector_graphics.dart';
+
+import '../../const.dart';
 import '../../typo.dart';
 import '../home/pages/home.dart';
 import '../widget/appbar.dart';
@@ -81,7 +82,7 @@ class _WorkState extends State<Work> {
                     child: Text(
                       "Work Experience",
                       maxLines: 1,
-                      style: textStyle(fontSize: 82, fontFamily: "noe", wght: 1200.0),
+                      style: textStyle(fontSize: 82, fontFamily: "noe", wght: 1200),
                     ),
                   ),
                 ),
@@ -91,7 +92,7 @@ class _WorkState extends State<Work> {
                 height: 8,
                 indent: screenWidth * 0.04,
               ),
-              ExperienceSection(
+              const ExperienceSection(
                 time: "06/2024 - Present",
                 delegation: "Flutter Developer",
                 company: "Unanime Planet · Full-time",
@@ -133,7 +134,7 @@ class _WorkState extends State<Work> {
                     description: entry.value,
                     down: down,
                   )),
-              ExperienceSection(
+              const ExperienceSection(
                 time: "12/2022 - 07/2023",
                 delegation: "Flutter Developer",
                 company: "Hansraj Ventures · Full-time",

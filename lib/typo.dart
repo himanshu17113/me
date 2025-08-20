@@ -4,7 +4,7 @@ import 'util/responsive.dart';
 
 const TextStyle displayLarge = TextStyle(
     debugLabel: 'englishLike displayLarge 2021',
-    fontSize: 57.0,
+    fontSize: 57,
     fontWeight: FontWeight.w400,
     letterSpacing: -0.25,
     height: 1.12,
@@ -12,49 +12,49 @@ const TextStyle displayLarge = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle displayMedium = TextStyle(
     debugLabel: 'englishLike displayMedium 2021',
-    fontSize: 45.0,
+    fontSize: 45,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
+    letterSpacing: 0,
     height: 1.16,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle displaySmall = TextStyle(
     debugLabel: 'englishLike displaySmall 2021',
-    fontSize: 36.0,
+    fontSize: 36,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
+    letterSpacing: 0,
     height: 1.22,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle headlineLarge = TextStyle(
     debugLabel: 'englishLike headlineLarge 2021',
-    fontSize: 32.0,
+    fontSize: 32,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
+    letterSpacing: 0,
     height: 1.25,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle headlineMedium = TextStyle(
     debugLabel: 'englishLike headlineMedium 2021',
-    fontSize: 28.0,
+    fontSize: 28,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
+    letterSpacing: 0,
     height: 1.29,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle headlineSmall = TextStyle(
     debugLabel: 'englishLike headlineSmall 2021',
-    fontSize: 24.0,
+    fontSize: 24,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
+    letterSpacing: 0,
     height: 1.33,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle titleLarge = TextStyle(
     debugLabel: 'englishLike titleLarge 2021',
-    fontSize: 22.0,
+    fontSize: 22,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.0,
+    letterSpacing: 0,
     height: 1.27,
     textBaseline: TextBaseline.alphabetic,
     leadingDistribution: TextLeadingDistribution.even);
@@ -67,7 +67,7 @@ const TextStyle titleBig = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle titleMedium = TextStyle(
     debugLabel: 'englishLike titleMedium 2021',
-    fontSize: 16.0,
+    fontSize: 16,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.15,
     height: 1.50,
@@ -75,7 +75,7 @@ const TextStyle titleMedium = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle titleSmall = TextStyle(
     debugLabel: 'englishLike titleSmall 2021',
-    fontSize: 14.0,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
     height: 1.43,
@@ -83,7 +83,7 @@ const TextStyle titleSmall = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle labelLarge = TextStyle(
     debugLabel: 'englishLike labelLarge 2021',
-    fontSize: 14.0,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
     height: 1.43,
@@ -91,7 +91,7 @@ const TextStyle labelLarge = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle labelMedium = TextStyle(
     debugLabel: 'englishLike labelMedium 2021',
-    fontSize: 12.0,
+    fontSize: 12,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
     height: 1.33,
@@ -99,7 +99,7 @@ const TextStyle labelMedium = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle labelSmall = TextStyle(
     debugLabel: 'englishLike labelSmall 2021',
-    fontSize: 11.0,
+    fontSize: 11,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
     height: 1.45,
@@ -107,7 +107,7 @@ const TextStyle labelSmall = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle bodyLarge = TextStyle(
     debugLabel: 'englishLike bodyLarge 2021',
-    fontSize: 16.0,
+    fontSize: 16,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.5,
     height: 1.50,
@@ -115,7 +115,7 @@ const TextStyle bodyLarge = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle bodyMedium = TextStyle(
     debugLabel: 'englishLike bodyMedium 2021',
-    fontSize: 14.0,
+    fontSize: 14,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.25,
     height: 1.43,
@@ -123,7 +123,7 @@ const TextStyle bodyMedium = TextStyle(
     leadingDistribution: TextLeadingDistribution.even);
 const TextStyle bodySmall = TextStyle(
     debugLabel: 'englishLike bodySmall 2021',
-    fontSize: 12.0,
+    fontSize: 12,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.4,
     height: 1.33,
@@ -137,11 +137,10 @@ const TextStyle lg = TextStyle(fontSize: 48);
 const TextStyle xl = TextStyle(fontSize: 60);
 
 TextStyle textStyle(
-        {double? wordSpacing,
+        {required double fontSize, double? wordSpacing,
         double? letterSpacing,
         String? fontFamily,
         Color? color,
-        required double fontSize,
         TextDecoration? decoration,
         double? height,
         double wght = 400,

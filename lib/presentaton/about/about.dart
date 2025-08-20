@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:me/const.dart';
+import '../../const.dart';
 import '../home/pages/home.dart';
 import '../widget/appbar.dart';
 import 'sub/backgound.dart';

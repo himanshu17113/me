@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:me/constants.dart';
 import 'const.dart';
+import 'constants.dart';
 import 'presentaton/home/pages/home.dart';
 
 void main() {
@@ -62,8 +62,8 @@ class _AppState extends State<App> {
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
-      highContrastDarkTheme: ThemeData.from(colorScheme: ColorScheme.highContrastDark(brightness: Brightness.dark), useMaterial3: true),
-      highContrastTheme: ThemeData.from(colorScheme: ColorScheme.highContrastLight(brightness: Brightness.light), useMaterial3: true),
+      highContrastDarkTheme: ThemeData.from(colorScheme: const ColorScheme.highContrastDark(), useMaterial3: true),
+      highContrastTheme: ThemeData.from(colorScheme: const ColorScheme.highContrastLight(), useMaterial3: true),
       home: //Contact()
           Home(
         useLightMode: useLightMode,

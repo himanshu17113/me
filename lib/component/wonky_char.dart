@@ -9,21 +9,21 @@ import 'package:flutter/material.dart';
 import '../const.dart';
 
 class WonkyChar extends StatefulWidget {
+  const WonkyChar({
+    required this.text,
+    required this.size,
+    super.key,
+    this.baseRotation = 0,
+    this.animDurationMillis = 1000,
+    this.colorTyper = 0,
+    this.animationSettings = const <WonkyAnimSetting>[],
+  });
   final String text;
   final double size;
   final double baseRotation;
   final int animDurationMillis;
   final int colorTyper;
   final List<WonkyAnimSetting> animationSettings;
-  const WonkyChar({
-    super.key,
-    required this.text,
-    required this.size,
-    this.baseRotation = 0,
-    this.animDurationMillis = 1000,
-    this.colorTyper = 0,
-    this.animationSettings = const <WonkyAnimSetting>[],
-  });
 
   @override
   State<WonkyChar> createState() => WonkyCharState();
@@ -36,8 +36,8 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
   late final List<Animation> _fvAnimations = [];
   final List<String> _fvAxes = [];
   // default curve and animations in case user sets nothing for them
-  late final defaultCurve = CurvedAnimation(parent: _animController, curve: const Interval(0, 1, curve: Curves.linear));
-    late final easeOutCubic = CurvedAnimation(parent: _animController, curve: const Interval(.2, 1, curve: Curves.easeOutCubic));
+  late final defaultCurve = CurvedAnimation(parent: _animController, curve: const Interval(0, 1));
+  late final easeOutCubic = CurvedAnimation(parent: _animController, curve: const Interval(.2, 1, curve: Curves.easeOutCubic));
   late Animation _scaleAnimation = Tween<double>(begin: 1, end: 1).animate(defaultCurve);
   late Animation _offsetXAnimation = Tween<double>(begin: 0, end: 0).animate(defaultCurve);
   late Animation _offsetYAnimation = Tween<double>(begin: 0, end: 0).animate(defaultCurve);
@@ -58,8 +58,8 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
         } else if (status == AnimationStatus.dismissed && loopingAnimation) {
           _animController.forward();
         }
-      });
-    _animController.forward();
+      })
+      ..forward();
   }
 
   @override
@@ -74,7 +74,7 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
 
   @override
   Widget build(BuildContext context) {
-    List<ui.FontVariation> fontVariations = [];
+    final List<ui.FontVariation> fontVariations = [];
     for (int i = 0; i < _fvAxes.length; i++) {
       fontVariations.add(ui.FontVariation(_fvAxes[i], _fvAnimations[i].value as double));
     }
@@ -90,18 +90,11 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
           style: TextStyle(
             height: -0.4,
             color: ((widget.colorTyper == 0
-                    ? ColorTween(
-                            begin: colorScheme.primary.withAlpha(80), end: colorScheme.inversePrimary.withAlpha(120))
-                        .animate(easeOutCubic)
+                    ? ColorTween(begin: colorScheme.primary.withAlpha(80), end: colorScheme.inversePrimary.withAlpha(120)).animate(easeOutCubic)
                     : widget.colorTyper == 1
-                        ? ColorTween(
-                                begin: colorScheme.secondary.withAlpha(60),
-                                end: colorScheme.secondaryContainer.withAlpha(160))
-                            .animate(easeOutCubic)
+                        ? ColorTween(begin: colorScheme.secondary.withAlpha(60), end: colorScheme.secondaryContainer.withAlpha(160)).animate(easeOutCubic)
                         : widget.colorTyper == 2
-                            ? ColorTween(
-                                    begin: colorScheme.secondaryContainer.withAlpha(80),
-                                    end: colorScheme.tertiaryContainer.withAlpha(160))
+                            ? ColorTween(begin: colorScheme.secondaryContainer.withAlpha(80), end: colorScheme.tertiaryContainer.withAlpha(160))
                                 .animate(easeOutCubic)
                             : _colorAnimation)
                 .value) as Color?,
@@ -119,7 +112,7 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
       vsync: this,
       duration: Duration(milliseconds: widget.animDurationMillis),
     );
-    for (WonkyAnimSetting s in settings) {
+    for (final WonkyAnimSetting s in settings) {
       final curve = CurvedAnimation(
         parent: _animController,
         curve: Interval(s.startAt, s.endAt, curve: s.curve),
@@ -128,8 +121,7 @@ class WonkyCharState extends State<WonkyChar> with SingleTickerProviderStateMixi
       if (s.property == 'color') {
         animation = ColorTween(begin: s.fromTo.fromValue() as Color?, end: s.fromTo.toValue() as Color?).animate(curve);
       } else {
-        animation =
-            Tween<double>(begin: s.fromTo.fromValue() as double, end: s.fromTo.toValue() as double).animate(curve);
+        animation = Tween<double>(begin: s.fromTo.fromValue() as double, end: s.fromTo.toValue() as double).animate(curve);
       }
       if (s.type == 'fv') {
         _fvAxes.add(s.property);
@@ -177,45 +169,29 @@ abstract class WCRange<T> {
 }
 
 class RangeColor implements WCRange<Color> {
+  RangeColor({required this.from, required this.to});
   Color from;
   Color to;
-  RangeColor({required this.from, required this.to});
   @override
-  Color fromValue() {
-    return from;
-  }
+  Color fromValue() => from;
 
   @override
-  Color toValue() {
-    return to;
-  }
+  Color toValue() => to;
 }
 
 class RangeDbl implements WCRange<double> {
+  RangeDbl({required this.from, required this.to});
   double from;
   double to;
 
-  RangeDbl({required this.from, required this.to});
+  @override
+  double fromValue() => from;
 
   @override
-  double fromValue() {
-    return from;
-  }
-
-  @override
-  double toValue() {
-    return to;
-  }
+  double toValue() => to;
 }
 
 class WonkyAnimSetting {
-  // just the animation
-  String type; // 'fv' for fontVariation, 'basic' for everything else
-  String property; //font variation axis, or 'size'/'rotation'/etc.
-  WCRange fromTo;
-  double startAt; // 0 to 1 rel to controller
-  double endAt; // same as start
-  Curve curve;
   WonkyAnimSetting({
     required this.type,
     required this.property,
@@ -224,4 +200,11 @@ class WonkyAnimSetting {
     required this.endAt,
     required this.curve,
   });
+  // just the animation
+  String type; // 'fv' for fontVariation, 'basic' for everything else
+  String property; //font variation axis, or 'size'/'rotation'/etc.
+  WCRange fromTo;
+  double startAt; // 0 to 1 rel to controller
+  double endAt; // same as start
+  Curve curve;
 }

@@ -5,10 +5,10 @@ extension PathEx on Path {
   ) {
     /// Don't know anything about it, just copied code from stackoverflow :)
     /// ComputeMetrics can only be iterated once!
-    final totalLength = computeMetrics()
-        .fold(0.0, (double prev, PathMetric metric) => prev + metric.length);
+    final double totalLength = computeMetrics()
+        .fold(0, (double prev, PathMetric metric) => prev + metric.length);
 
-    final currentLength = totalLength * animationPercent;
+    final double currentLength = totalLength * animationPercent;
 
     return _extractPathUntilLength(currentLength);
   }
@@ -20,22 +20,22 @@ extension PathEx on Path {
 
     final path = Path();
 
-    var metricsIterator = computeMetrics().iterator;
+    final Iterator<PathMetric> metricsIterator = computeMetrics().iterator;
     while (metricsIterator.moveNext()) {
-      var metric = metricsIterator.current;
+      final PathMetric metric = metricsIterator.current;
 
-      var nextLength = currentLength + metric.length;
+      final double nextLength = currentLength + metric.length;
 
-      final isLastSegment = nextLength > length;
+      final bool isLastSegment = nextLength > length;
       if (isLastSegment) {
-        final remainingLength = length - currentLength;
-        final pathSegment = metric.extractPath(0.0, remainingLength);
+        final double remainingLength = length - currentLength;
+        final Path pathSegment = metric.extractPath(0, remainingLength);
 
         path.addPath(pathSegment, Offset.zero);
         break;
       } else {
         // There might be a more efficient way of extracting an entire path
-        final pathSegment = metric.extractPath(0.0, metric.length);
+        final Path pathSegment = metric.extractPath(0, metric.length);
         path.addPath(pathSegment, Offset.zero);
       }
 

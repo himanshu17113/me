@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:me/const.dart';
-import 'package:me/presentaton/about/widget/hobby_items.dart';
-import 'package:me/typo.dart';
-import 'package:me/util/extensions/extensions.dart';
+
+import '../../../const.dart';
+import '../../../typo.dart';
+import '../../../util/extensions/extensions.dart';
+import '../widget/hobby_items.dart';
 
 class WhatILoveToDo extends StatelessWidget {
   const WhatILoveToDo({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
         //  height: screenHeight,
         width: screenWidth,
         child: Padding(
@@ -21,7 +21,7 @@ class WhatILoveToDo extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20, bottom: 10),
                 child: Text("What I Love To Do",
                     style: textStyle(
-                      fontSize: 46.0,
+                      fontSize: 46,
                       wght: 500,
                       fontFamily: "SourGummy",
                     )),
@@ -29,8 +29,7 @@ class WhatILoveToDo extends StatelessWidget {
               Wrap(
                 spacing: 5 + mediaQueryData.size.width * 0.04,
                 runSpacing: 10 + mediaQueryData.size.width * 0.05,
-                alignment: WrapAlignment.start,
-                children: [
+                children: const [
                   HobbyItem(icon: Icons.code, label: "Learning \nnew technology"),
                   HobbyItem(icon: Icons.music_note_outlined, label: "Song"),
                   HobbyItem(icon: Icons.coffee_maker_outlined, label: "Coffee"),
@@ -42,5 +41,4 @@ class WhatILoveToDo extends StatelessWidget {
             ],
           ),
         ));
-  }
 }

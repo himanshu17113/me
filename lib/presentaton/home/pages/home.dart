@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:me/presentaton/home/pages/fotter.dart';
-import 'package:me/presentaton/widget/color_line.dart';
-import 'package:me/presentaton/home/pages/lhome.dart';
 
 import '../../../const.dart';
-import '../../widget/appbar.dart';
 import '../../../constants.dart';
+import '../../widget/appbar.dart';
+import '../../widget/color_line.dart';
+import 'fotter.dart';
+import 'lhome.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key, required this.useLightMode, required this.colorSelected, required this.handleBrightnessChange, required this.handleColorSelect});
+  const Home({required this.useLightMode, required this.colorSelected, required this.handleBrightnessChange, required this.handleColorSelect, super.key});
   final bool useLightMode;
   final ColorSeed colorSelected;
   final void Function(bool useLightMode) handleBrightnessChange;

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:me/const.dart';
-import 'package:me/typo.dart';
-
+import '../../../const.dart';
+import '../../../typo.dart';
 import '../../component/typer.dart';
 
 class HorizontalLine extends StatelessWidget {
+  const HorizontalLine({
+    required this.title, super.key,
+    this.size = 36,
+    this.edgeInsets,
+  });
   final String title;
   final double size;
   final EdgeInsets? edgeInsets;
@@ -16,13 +20,6 @@ class HorizontalLine extends StatelessWidget {
   static const _maskWidthFactor = 20.0;
   static const _lineWidthFactor = 0.04;
   static const _lineWidthOffset = 10.0;
-
-  const HorizontalLine({
-    super.key,
-    required this.title,
-    this.size = 36,
-    this.edgeInsets,
-  });
 
   @override
   Widget build(BuildContext context) {

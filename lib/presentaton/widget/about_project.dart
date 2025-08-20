@@ -1,29 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:me/component/wonky_char.dart';
-import 'package:me/typo.dart';
 
 import '../../component/wonky_anim_palette.dart';
+import '../../component/wonky_char.dart';
 import '../../const.dart';
+import '../../typo.dart';
 import '../../util/buttons/buttons.dart';
 
 class AboutProject extends StatelessWidget {
+  const AboutProject({
+    required this.isVisble, required this.label, required this.description, required this.onPressed, required this.colorTypr, super.key,
+  });
   final bool isVisble;
   final String label;
   final String description;
   final VoidCallback onPressed;
   final int colorTypr;
-  const AboutProject({
-    super.key,
-    required this.isVisble,
-    required this.label,
-    required this.description,
-    required this.onPressed,
-    required this.colorTypr,
-  });
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       // height: 100,
       child: AnimatedOpacity(
         duration: Durations.extralong4,
@@ -34,7 +28,6 @@ class AboutProject extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
             child: Row(
-              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Stack(
@@ -48,11 +41,9 @@ class AboutProject extends StatelessWidget {
                         WonkyAnimPalette.weight(
                           from: 500,
                           to: 900,
-                          curve: Curves.easeInOut,
                         ),
                         WonkyAnimPalette.descenderDepth(
                           from: -1000,
-                          to: -138,
                         ),
                         WonkyAnimPalette.opticalSize(),
                         WonkyAnimPalette.grade(),
@@ -60,8 +51,7 @@ class AboutProject extends StatelessWidget {
                         WonkyAnimPalette.offsetY(from: 115, to: 90, curve: Curves.easeOutCubic)
                       ],
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
+                    const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -91,5 +81,4 @@ class AboutProject extends StatelessWidget {
         ),
       ),
     );
-  }
 }

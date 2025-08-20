@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:me/util/extensions/extensions.dart';
+import 'extensions/extensions.dart';
 
 
 final Color kPrimary = '#F4F4EF'.toColor();

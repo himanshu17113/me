@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class FocusNodeBuilder extends StatefulWidget {
+  const FocusNodeBuilder({required this.builder, required this.focusNode, super.key});
   final Widget Function(BuildContext context, bool hasFocus) builder;
   final FocusNode focusNode;
-  const FocusNodeBuilder({super.key, required this.builder, required this.focusNode});
 
   @override
   State<FocusNodeBuilder> createState() => _FocusNodeBuilderState();
@@ -34,7 +34,5 @@ class _FocusNodeBuilderState extends State<FocusNodeBuilder> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return widget.builder(context, hasFocus);
-  }
+  Widget build(BuildContext context) => widget.builder(context, hasFocus);
 }

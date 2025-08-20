@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:me/const.dart';
-import 'package:me/presentaton/component/typer.dart';
-import 'package:me/typo.dart';
+
+import '../../../const.dart';
+import '../../../typo.dart';
 import '../../component/line.dart';
+import '../../component/typer.dart';
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  Widget build(BuildContext context) => SizedBox(
       height: screenHeight,
       width: screenWidth,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: EdgeInsets.only(left: screenWidth * 0.01, right: screenWidth * 0.04),
             child: SizedBox(
               child: Column(
                 children: [
-                  Spacer(
+                  const Spacer(
                     flex: 5,
                   ),
                   RotatedBox(
@@ -30,23 +29,23 @@ class Intro extends StatelessWidget {
                         "  About",
                         style: textStyle(fontSize: 24),
                       )),
-                  Expanded(flex: 6, child: Line())
+                  const Expanded(flex: 6, child: Line())
                 ],
               ),
             ),
           ),
           Column(
             children: [
-              Spacer(),
+              const Spacer(),
               SizedBox(
-                width: screenWidth * ( .45),
+                width: screenWidth *  .45,
                 child: TypeText(
                     "I specialize in mobile technologies and am passionate about developing scalable, high-quality applications with exceptional user experiences.",
                     textAlign: TextAlign.center,
                     style: textStyle(fontSize: 48, height: 1.38, fontFamily: "SourGummy", wght: 200),
-                    duration: Duration(seconds: 3)),
+                    duration: const Duration(seconds: 3)),
               ),
-              Spacer(
+              const Spacer(
                 flex: 2,
               ),
             ],
@@ -54,5 +53,4 @@ class Intro extends StatelessWidget {
         ],
       ),
     );
-  }
 }
